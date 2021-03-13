@@ -76,23 +76,11 @@ acquireMotor = new WPI_TalonSRX(5);
 
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
-    public void fireLeftSolenoids() {
-        leftSolenoid.set(kForward);
-    }
-    public void retractLeftSolenoids() {
-        leftSolenoid.set(kReverse);
-    }
-    public void fireRightSolenoids() {
-        rightSolenoid.set(kReverse);
-    }
-   public void retractRightSolenoids() {
-        rightSolenoid.set(kForward);
-    }
     public void startAquireMotor() {
         acquireMotor.set(.3);
     }
 
-    public void fireSolenoids() {
+    public void extendSolenoids() {
         rightSolenoid.set(kForward);
         leftSolenoid.set(kReverse);
     }
@@ -101,6 +89,12 @@ acquireMotor = new WPI_TalonSRX(5);
         rightSolenoid.set(kReverse); 
         leftSolenoid.set(kForward);     
     }
+
+    public void floatSolenoid() {
+        rightSolenoid.set(kReverse); 
+        leftSolenoid.set(kReverse);     
+    }
+ 
     public void stopAquireMotor() {
         acquireMotor.stopMotor();
     }

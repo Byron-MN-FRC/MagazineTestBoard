@@ -99,9 +99,9 @@ final JoystickButton btnRetractSolenoid = new JoystickButton(testJoystick, 8);
 btnRetractSolenoid.whenPressed(new retractSolenoid( m_ballAcquisition ) ,true);
     SmartDashboard.putData("btnRetractSolenoid",new retractSolenoid( m_ballAcquisition ) );
 
-final JoystickButton btnFireSolenoid = new JoystickButton(testJoystick, 7);        
-btnFireSolenoid.whenPressed(new fireSolenoid( m_ballAcquisition ) ,true);
-    SmartDashboard.putData("btnFireSolenoid",new fireSolenoid( m_ballAcquisition ) );
+final JoystickButton btnExtendSolenoid = new JoystickButton(testJoystick, 7);        
+btnExtendSolenoid.whenPressed(new extendSolenoid( m_ballAcquisition ).withTimeout(0.5) ,true);
+    SmartDashboard.putData("btnExtendSolenoid",new extendSolenoid( m_ballAcquisition ).withTimeout(0.5) );
 
 final JoystickButton btnStopShootMotor = new JoystickButton(testJoystick, 3);        
 btnStopShootMotor.whenReleased(new stopShootMotor( m_ballShooter ) ,true);
