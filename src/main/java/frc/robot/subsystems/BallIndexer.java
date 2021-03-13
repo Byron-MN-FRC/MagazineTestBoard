@@ -93,15 +93,18 @@ gateSensor = new DigitalInput(7);
 		SmartDashboard.putBoolean("Bottom Sensor", !bottomSensor.get());
 	
 
-		if (!bottomSensor.get() && advanceBallComplete()) {
-			advanceBall();
-		}
-		if (!gateSensor.get()){
+		// if (!bottomSensor.get() && advanceBallComplete()) {
+		// 	advanceBall();
+		// }
+		if (gateSensor()){
 			startGateMotor();
-	
 		}else {
 			stopGateMotor();
 		}
+		if (bottomSensor() && advanceBallComplete()){
+			advanceBall();
+		}
+		
 	}
 
     @Override
@@ -131,7 +134,12 @@ gateSensor = new DigitalInput(7);
 	public void stopGateMotor() {
 		gateMotor.stopMotor();
 	}
-	
+	private boolean gateSensor() {
+		return !gateSensor.get();
+	}
+	private boolean bottomSensor(){
+		return !bottomSensor.get();
+	}
 	public void advanceBall() {
 		System.out.println("This is Advance Ball");
 	
