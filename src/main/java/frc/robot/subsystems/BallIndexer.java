@@ -29,6 +29,7 @@ import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.BeltMotorConstants;
+import frc.robot.commands.startAcquireMotor;
 	
 /**
  *
@@ -94,6 +95,12 @@ gateSensor = new DigitalInput(7);
 
 		if (!bottomSensor.get() && advanceBallComplete()) {
 			advanceBall();
+		}
+		if (!gateSensor.get()){
+			startGateMotor();
+	
+		}else {
+			stopGateMotor();
 		}
 	}
 
