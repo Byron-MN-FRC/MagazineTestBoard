@@ -30,6 +30,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.BeltMotorConstants;
 import frc.robot.commands.startAcquireMotor;
+import frc.robot.commands.startGateMotor;
 	
 /**
  *
@@ -92,18 +93,26 @@ gateSensor = new DigitalInput(7);
 		SmartDashboard.putBoolean("Top Sensor", !topSensor.get());
 		SmartDashboard.putBoolean("Bottom Sensor", !bottomSensor.get());
 	
+		if (gateSensor() != false && advanceBallComplete() &&  topSensor() != true) {
+			startGateMotor();
+		 }
+		 else{
+			 gateMotor.stopMotor();
+			 rightBeltMotor.set(0);
+			 leftBeltMotor.follow(rightBeltMotor, FollowerType.AuxOutput1);
+		 }
 
 		// if (!bottomSensor.get() && advanceBallComplete()) {
 		// 	advanceBall();
 		// }
-		if (gateSensor()){
+		/*if (gateSensor()){
 			startGateMotor();
 		}else {
 			stopGateMotor();
 		}
 		if (bottomSensor() && advanceBallComplete()){
 			advanceBall();
-		}
+		}*/
 		
 	}
 
@@ -139,6 +148,9 @@ gateSensor = new DigitalInput(7);
 	}
 	private boolean bottomSensor(){
 		return !bottomSensor.get();
+	}
+	private boolean topSensor(){
+		return !topSensor.get();
 	}
 	public void advanceBall() {
 		System.out.println("This is Advance Ball");
