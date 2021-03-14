@@ -268,6 +268,28 @@
               "_source0": "network_table:///SmartDashboard/btnStartShootMotor",
               "_title": "btnStartShootMotor"
             }
+          },
+          "9,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Command",
+              "_source0": "network_table:///SmartDashboard/btnExtendSolenoid",
+              "_title": "btnExtendSolenoid"
+            }
+          },
+          "9,1": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Command",
+              "_source0": "network_table:///SmartDashboard/btnRetractSolenoid",
+              "_title": "btnRetractSolenoid"
+            }
           }
         }
       }
@@ -477,9 +499,9 @@
     }
   ],
   "windowGeometry": {
-    "x": 166.0,
-    "y": 40.0,
-    "width": 1152.0,
-    "height": 480.0
+    "x": -207.0,
+    "y": -1080.0,
+    "width": 1600.0,
+    "height": 1200.0
   }
 }
