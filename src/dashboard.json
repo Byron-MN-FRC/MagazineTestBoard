@@ -175,7 +175,7 @@
               "_title": "Autonomous Command"
             }
           },
-          "6,1": {
+          "0,4": {
             "size": [
               1,
               1
@@ -223,7 +223,7 @@
               "Colors/Color when false": "#8B0000FF"
             }
           },
-          "1,2": {
+          "0,3": {
             "size": [
               1,
               1
@@ -236,7 +236,7 @@
               "Colors/Color when false": "#8B0000FF"
             }
           },
-          "2,2": {
+          "3,3": {
             "size": [
               1,
               1
@@ -289,6 +289,17 @@
               "_type": "Command",
               "_source0": "network_table:///SmartDashboard/btnRetractSolenoid",
               "_title": "btnRetractSolenoid"
+            }
+          },
+          "10,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Command",
+              "_source0": "network_table:///SmartDashboard/Indexer-RunAcquireMotor",
+              "_title": "Indexer-RunAcquireMotor"
             }
           }
         }
@@ -433,7 +444,7 @@
         "hgap": 16.0,
         "vgap": 16.0,
         "tiles": {
-          "1,0": {
+          "0,1": {
             "size": [
               1,
               1
@@ -459,7 +470,7 @@
               "Colors/Color when false": "#8B0000FF"
             }
           },
-          "2,0": {
+          "0,2": {
             "size": [
               1,
               1
@@ -472,7 +483,7 @@
               "Colors/Color when false": "#8B0000FF"
             }
           },
-          "3,0": {
+          "2,0": {
             "size": [
               1,
               1
@@ -483,7 +494,7 @@
               "_title": "SmartDashboard/Left Encoder"
             }
           },
-          "4,0": {
+          "2,1": {
             "size": [
               1,
               1
@@ -499,9 +510,9 @@
     }
   ],
   "windowGeometry": {
-    "x": -207.0,
-    "y": -1080.0,
-    "width": 1600.0,
-    "height": 1200.0
+    "x": 31.600000381469727,
+    "y": 0.0,
+    "width": 790.4000244140625,
+    "height": 423.6000061035156
   }
 }
