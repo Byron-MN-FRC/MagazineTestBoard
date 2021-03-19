@@ -76,8 +76,8 @@ acquireMotor = new WPI_TalonSRX(5);
 
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
-    public void startAquireMotor() {
-        acquireMotor.set(.3);
+    public void startAquireMotor(double speed) {
+        acquireMotor.set(speed);
     }
 
     public void extendSolenoids() {
