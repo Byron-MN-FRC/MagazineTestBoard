@@ -480,7 +480,7 @@ Children:
         Timeout: !!robotbuilder.data.properties.DoubleProperty {default: 0, name: Timeout,
           validators: null, value: 0.5}
         Add Timeout: !!robotbuilder.data.properties.BooleanProperty {default: false,
-          name: Add Timeout, validators: null, value: false}
+          name: Add Timeout, validators: null, value: true}
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id016
           default: whenPressed

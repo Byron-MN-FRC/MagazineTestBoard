@@ -100,8 +100,8 @@ btnUnDeployAcquisition.whenPressed(new undeployAcquisition( m_ballAcquisition ) 
     SmartDashboard.putData("btnUnDeployAcquisition",new undeployAcquisition( m_ballAcquisition ) );
 
 final JoystickButton btnDeployAcquisition = new JoystickButton(testJoystick, 5);        
-btnDeployAcquisition.whenPressed(new deployAcquisition( m_ballAcquisition ) ,true);
-    SmartDashboard.putData("btnDeployAcquisition",new deployAcquisition( m_ballAcquisition ) );
+btnDeployAcquisition.whenPressed(new deployAcquisition( m_ballAcquisition ).withTimeout(0.5) ,true);
+    SmartDashboard.putData("btnDeployAcquisition",new deployAcquisition( m_ballAcquisition ).withTimeout(0.5) );
 
 final JoystickButton btnStopShootMotor = new JoystickButton(testJoystick, 3);        
 btnStopShootMotor.whenReleased(new stopShootMotor( m_ballShooter ) ,true);
