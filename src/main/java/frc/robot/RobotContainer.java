@@ -107,23 +107,15 @@ final JoystickButton btnDeployAcquisition = new JoystickButton(testJoystick, 5);
 btnDeployAcquisition.whenPressed(new deployAcquisition( m_ballAcquisition ).withTimeout(0.5) ,true);
     SmartDashboard.putData("btnDeployAcquisition",new deployAcquisition( m_ballAcquisition ).withTimeout(0.5) );
 
-final JoystickButton btnStopShootMotor = new JoystickButton(testJoystick, 3);        
-btnStopShootMotor.whenReleased(new stopShootMotor( m_ballShooter ) ,true);
-    SmartDashboard.putData("btnStopShootMotor",new stopShootMotor( m_ballShooter ) );
+final JoystickButton btnRunShootMotor = new JoystickButton(testJoystick, 12);        
+btnRunShootMotor.whileHeld(new runShootMotor( m_ballShooter ) ,true);
+    SmartDashboard.putData("btnRunShootMotor",new runShootMotor( m_ballShooter ) );
 
-final JoystickButton btnStartShootMotor = new JoystickButton(testJoystick, 3);        
-btnStartShootMotor.whileHeld(new startShootMotor( m_ballShooter ) ,true);
-    SmartDashboard.putData("btnStartShootMotor",new startShootMotor( m_ballShooter ) );
+final JoystickButton btnRunGateMotor = new JoystickButton(testJoystick, 11);        
+btnRunGateMotor.whileHeld(new runGateMotor( m_ballIndexer ) ,true);
+    SmartDashboard.putData("btnRunGateMotor",new runGateMotor( m_ballIndexer ) );
 
-final JoystickButton btnStopGateMotor = new JoystickButton(testJoystick, 6);        
-btnStopGateMotor.whenReleased(new stopGateMotor( m_ballIndexer ) ,true);
-    SmartDashboard.putData("btnStopGateMotor",new stopGateMotor( m_ballIndexer ) );
-
-final JoystickButton btnStartGateMotor = new JoystickButton(testJoystick, 6);        
-btnStartGateMotor.whileHeld(new startGateMotor( m_ballIndexer ) ,true);
-    SmartDashboard.putData("btnStartGateMotor",new startGateMotor( m_ballIndexer ) );
-
-final JoystickButton btnRunAcquireMotor = new JoystickButton(testJoystick, 5);        
+final JoystickButton btnRunAcquireMotor = new JoystickButton(testJoystick, 6);        
 btnRunAcquireMotor.whileHeld(new runAcquireMotor( m_ballAcquisition ) ,true);
     SmartDashboard.putData("btnRunAcquireMotor",new runAcquireMotor( m_ballAcquisition ) );
 
