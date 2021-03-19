@@ -85,8 +85,8 @@ gateSensor = new DigitalInput(7);
 	} 
 	
 	// instantiate two commands that run continously
-	private GateLoad cmdGateLoad = new GateLoad(this);
-	private MagazineLoad cmdMagLoad = new MagazineLoad(this);
+	private GateLoad cmdGateLoad = new GateLoad();
+	private MagazineLoad cmdMagLoad = new MagazineLoad();
 
 	private boolean gateLoadInProgress;
 	public boolean GateLoadInProgress(){ return gateLoadInProgress; }
