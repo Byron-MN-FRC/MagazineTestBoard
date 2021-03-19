@@ -57,8 +57,8 @@ public class MagazineLoad extends CommandBase {
         boolean ts = m_ballIndexer.ballAtTop();
 
         if (bs && !ts){
-            m_ballIndexer.startLeftBeltMotor();
-            m_ballIndexer.startRightBeltMotor();
+            m_ballIndexer.startLeftBeltMotor(.5);
+            m_ballIndexer.startRightBeltMotor(.5);
         }
         else {
             m_ballIndexer.stopLeftBeltMotor();

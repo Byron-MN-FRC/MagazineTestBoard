@@ -127,25 +127,13 @@ final JoystickButton btnRunAcquireMotor = new JoystickButton(testJoystick, 5);
 btnRunAcquireMotor.whileHeld(new startAcquireMotor( m_ballAcquisition ) ,true);
     SmartDashboard.putData("btnRunAcquireMotor",new startAcquireMotor( m_ballAcquisition ) );
 
-final JoystickButton btnAdvanceBall = new JoystickButton(testJoystick, 2);        
-btnAdvanceBall.whenPressed(new AdvanceBall( m_ballIndexer ) ,true);
-    SmartDashboard.putData("btnAdvanceBall",new AdvanceBall( m_ballIndexer ) );
+final JoystickButton btnReverseBeltMotors = new JoystickButton(testJoystick, 8);        
+btnReverseBeltMotors.whenHeld(new reverseBeltMotors( m_ballIndexer ) ,true);
+    SmartDashboard.putData("btnReverseBeltMotors",new reverseBeltMotors( m_ballIndexer ) );
 
-final JoystickButton btnRightBeltStop = new JoystickButton(testJoystick, 11);        
-btnRightBeltStop.whenReleased(new stopRightBeltMotor( m_ballIndexer ) ,true);
-    SmartDashboard.putData("btnRightBeltStop",new stopRightBeltMotor( m_ballIndexer ) );
-
-final JoystickButton btnRightBeltStart = new JoystickButton(testJoystick, 11);        
-btnRightBeltStart.whileHeld(new startRightBeltMotor( m_ballIndexer ) ,true);
-    SmartDashboard.putData("btnRightBeltStart",new startRightBeltMotor( m_ballIndexer ) );
-
-final JoystickButton btnLeftBeltStop = new JoystickButton(testJoystick, 12);        
-btnLeftBeltStop.whenReleased(new stopLeftBeltMotor( m_ballIndexer ) ,true);
-    SmartDashboard.putData("btnLeftBeltStop",new stopLeftBeltMotor( m_ballIndexer ) );
-
-final JoystickButton btnLeftBeltStart = new JoystickButton(testJoystick, 12);        
-btnLeftBeltStart.whileHeld(new startLeftBeltMotor( m_ballIndexer ) ,true);
-    SmartDashboard.putData("btnLeftBeltStart",new startLeftBeltMotor( m_ballIndexer ) );
+final JoystickButton btnRunBeltMotors = new JoystickButton(testJoystick, 7);        
+btnRunBeltMotors.whenHeld(new runBeltMotors( m_ballIndexer ) ,true);
+    SmartDashboard.putData("btnRunBeltMotors",new runBeltMotors( m_ballIndexer ) );
 
 
 
