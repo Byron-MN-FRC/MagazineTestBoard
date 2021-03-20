@@ -168,7 +168,7 @@ gateSensor = new DigitalInput(7);
 		return bottomSensor.get();
 	}
 	boolean topSensor(){
-		return topSensor.get();
+		return !topSensor.get();
 	}
 
 	boolean magLoad = false;
