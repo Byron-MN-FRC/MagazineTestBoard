@@ -29,8 +29,7 @@ import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.BeltMotorConstants;
-import frc.robot.commands.GateLoad;
-import frc.robot.commands.MagazineLoad;
+
 	
 /**
  *
@@ -85,8 +84,6 @@ gateSensor = new DigitalInput(7);
 	} 
 	
 	// instantiate two commands that run continously
-	private GateLoad cmdGateLoad = new GateLoad();
-	private MagazineLoad cmdMagLoad = new MagazineLoad();
 
 	private boolean gateLoadInProgress;
 	public boolean GateLoadInProgress(){ return gateLoadInProgress; }
@@ -108,10 +105,9 @@ gateSensor = new DigitalInput(7);
 		SmartDashboard.putBoolean("Bottom Sensor", ballAtBottom());
 		SmartDashboard.putBoolean("GateLoadInProgress",gateLoadInProgress);
 
-		if (!cmdGateLoad.isScheduled()) { cmdGateLoad.schedule(); }
-		if (!cmdMagLoad.isScheduled()) { cmdMagLoad.schedule(); }
-		SmartDashboard.putData("GateLoad",cmdGateLoad);
-		SmartDashboard.putData("MagLoad", cmdMagLoad);
+		magLoad();
+		gateLoad();
+
 	}
 
 	
@@ -122,13 +118,49 @@ gateSensor = new DigitalInput(7);
 
     }
 
+	private void gateLoad() {
+		boolean gs = ballAtGate();
+        boolean bs = ballAtBottom();
+        boolean ts = ballAtTop();
+ 
+        if (gs && !ts){
+            if (!GateLoadInProgress()){
+                if (!bs && !ts) {
+                    SetGateLoadInProgress(true);
+                    startGateMotor();
+                }
+            }
+            startGateMotor();
+        }
+
+         if (bs){
+            if (GateLoadInProgress()){
+                SetGateLoadInProgress(false);
+                stopGateMotor();
+            }
+        }
+	}
+
+	private void magLoad() {
+		boolean bs = ballAtBottom();
+        boolean ts = ballAtTop();
+
+        if (bs && !ts){
+            startLeftBeltMotor();
+            startRightBeltMotor();
+        }
+        else {
+            stopLeftBeltMotor();
+            stopRightBeltMotor();
+        }
+	}
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
     public void startLeftBeltMotor() {
-        leftBeltMotor.set(-.45);
+        leftBeltMotor.set(.3);
     }
     public void startRightBeltMotor() {
-        rightBeltMotor.set(-.5);
+        rightBeltMotor.set(.3);
     }
     public void stopLeftBeltMotor() {
         leftBeltMotor.stopMotor();
@@ -138,7 +170,7 @@ gateSensor = new DigitalInput(7);
 	}
 
 	public void startGateMotor() {
-		gateMotor.set(.5);
+		gateMotor.set(-.3);
 	}
 	public void stopGateMotor() {
 		gateMotor.stopMotor();
@@ -150,6 +182,7 @@ gateSensor = new DigitalInput(7);
 
 	public boolean ballAtGate() {
 		return !gateSensor.get();
+
 	}
 
 	public boolean ballAtBottom() {
