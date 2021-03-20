@@ -156,7 +156,7 @@ gateSensor = new DigitalInput(7);
 	}
 
 	public void startGateMotor() {
-		gateMotor.set(.5);
+		gateMotor.set(-.5);
 	}
 	public void stopGateMotor() {
 		gateMotor.stopMotor();
@@ -321,6 +321,11 @@ gateSensor = new DigitalInput(7);
 		leftBeltMotor.getSensorCollection().setQuadraturePosition(0, BeltMotorConstants.kTimeoutMs);
 		rightBeltMotor.getSensorCollection().setQuadraturePosition(0, BeltMotorConstants.kTimeoutMs);
 		System.out.println("[Quadrature Encoders] All sensors are zeroed.\n");
+	}
+
+	public void reinizilizeIndexer() {
+		gateLoad = false;
+		magLoad = false;
 	}
 
 	
