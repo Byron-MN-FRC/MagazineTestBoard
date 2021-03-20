@@ -82,7 +82,7 @@ Children:
         default: []
         name: Constants
         validators: null
-        value: &id005 []
+        value: []
     Base: Subsystem
     Name: BallIndexer
   - Children:
@@ -98,6 +98,26 @@ Children:
           value: '13'
       Base: Talon FX
       Name: shootMotor
+    - Children: []
+      Properties:
+        CAN ID: !!robotbuilder.data.properties.ChoicesProperty
+          choices: *id001
+          default: '2'
+          name: CAN ID
+          validators: *id002
+          value: '8'
+      Base: Talon SRX
+      Name: hoodMotor
+    - Children: []
+      Properties:
+        Input Channel (Digital): !!robotbuilder.data.properties.ChoicesProperty
+          choices: *id003
+          default: '0'
+          name: Input Channel (Digital)
+          validators: *id004
+          value: '0'
+      Base: Digital Input
+      Name: limitSwitchDown
     Properties:
       Send to SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: false,
         name: Send to SmartDashboard, validators: null, value: false}
@@ -107,9 +127,9 @@ Children:
         validators: null
         value: []
       Default Command: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
-        name: Default Command, type: Command, validators: null, value: None}
+        name: Default Command, type: Command, validators: null, value: idleBallShooter}
       Constants: !!robotbuilder.data.properties.ConstantsProperty
-        default: []
+        default: &id005 []
         name: Constants
         validators: null
         value: *id005
@@ -985,6 +1005,28 @@ Children:
         name: Button on SmartDashboard, validators: null, value: false}
     Base: Command
     Name: retractSolenoid
+  - Children: []
+    Properties:
+      Autonomous Selection: !!robotbuilder.data.properties.BooleanProperty {default: false,
+        name: Autonomous Selection, validators: null, value: false}
+      Parameters: !!robotbuilder.data.properties.ParametersProperty
+        default: []
+        name: Parameters
+        validators: null
+        value: []
+      Run When Disabled: !!robotbuilder.data.properties.BooleanProperty {default: false,
+        name: Run When Disabled, validators: null, value: false}
+      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+        name: Requires, type: Subsystem, validators: null, value: BallShooter}
+      Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
+        default: &id017 []
+        name: Parameter presets
+        validators: null
+        value: *id017
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: true}
+    Base: Command
+    Name: idleBallShooter
   Properties: {}
   Base: Commands
   Name: Commands
@@ -1004,10 +1046,12 @@ Properties:
       Number, validators: null, value: 4859}
   Export Subsystems: !!robotbuilder.data.properties.BooleanProperty {default: true,
     name: Export Subsystems, validators: null, value: true}
-  Wiring file location: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\heinz_\',
-    extension: null, folder: true, name: Wiring file location, validators: null, value: 'C:\Users\heinz_\'}
-  Export Directory: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\heinz_\FRCProjects',
-    extension: null, folder: true, name: Export Directory, validators: null, value: 'C:\FRC_git'}
+  Wiring file location: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\Byron
+      Robotics\', extension: null, folder: true, name: Wiring file location, validators: null,
+    value: 'C:\Users\heinz_\'}
+  Export Directory: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\Byron
+      Robotics\FRCProjects', extension: null, folder: true, name: Export Directory,
+    validators: null, value: 'C:\FRC_git'}
   Autonomous Command: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
     name: Autonomous Command, type: Command, validators: null, value: Autonomous Command}
 Base: Robot
