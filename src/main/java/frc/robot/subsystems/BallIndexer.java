@@ -85,8 +85,8 @@ gateSensor = new DigitalInput(7);
 	} 
 	
 	// instantiate two commands that run continously
-	private GateLoad cmdGateLoad = new GateLoad(this);
-	private MagazineLoad cmdMagLoad = new MagazineLoad(this);
+	private GateLoad cmdGateLoad = new GateLoad();
+	private MagazineLoad cmdMagLoad = new MagazineLoad();
 
 	private boolean gateLoadInProgress;
 	public boolean GateLoadInProgress(){ return gateLoadInProgress; }
@@ -125,10 +125,10 @@ gateSensor = new DigitalInput(7);
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
     public void startLeftBeltMotor() {
-        leftBeltMotor.set(.5);
+        leftBeltMotor.set(-.45);
     }
     public void startRightBeltMotor() {
-        rightBeltMotor.set(.5);
+        rightBeltMotor.set(-.5);
     }
     public void stopLeftBeltMotor() {
         leftBeltMotor.stopMotor();
@@ -153,7 +153,7 @@ gateSensor = new DigitalInput(7);
 	}
 
 	public boolean ballAtBottom() {
-		return !bottomSensor.get();
+		return bottomSensor.get();
 	}
 
 	public boolean ballAtTop() {
@@ -180,7 +180,11 @@ gateSensor = new DigitalInput(7);
 	}
 	
 	public void advanceBall() {
-		System.out.println("This is Advance Ball");
+		rightBeltMotor.set(-.05);
+		leftBeltMotor.set(-.05);
+	}
+	public void advanceBall1() {
+			System.out.println("This is Advance Ball");
 	
 		/* Determine which slot affects which PID */
 		rightBeltMotor.selectProfileSlot(BeltMotorConstants.kSlot_Distanc, BeltMotorConstants.PID_PRIMARY);
@@ -204,6 +208,10 @@ gateSensor = new DigitalInput(7);
 	}
 
 	public boolean advanceBallComplete() {
+		return  !ballAtBottom();
+	}
+
+	public boolean advanceBallComplete1() {
 		return rightBeltMotor.getClosedLoopError() < 500 && !ballAtBottom();
 	}
 

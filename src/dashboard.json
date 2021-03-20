@@ -301,6 +301,41 @@
               "_source0": "network_table:///SmartDashboard/Indexer-RunAcquireMotor",
               "_title": "Indexer-RunAcquireMotor"
             }
+          },
+          "6,1": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Command",
+              "_source0": "network_table:///SmartDashboard/MagLoad",
+              "_title": "MagLoad"
+            }
+          },
+          "10,1": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Command",
+              "_source0": "network_table:///SmartDashboard/GateLoad",
+              "_title": "GateLoad"
+            }
+          },
+          "1,2": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Boolean Box",
+              "_source0": "network_table:///SmartDashboard/GateLoadInProgress",
+              "_title": "GateLoadInProgress",
+              "Colors/Color when true": "#7CFC00FF",
+              "Colors/Color when false": "#8B0000FF"
+            }
           }
         }
       }
@@ -510,9 +545,9 @@
     }
   ],
   "windowGeometry": {
-    "x": 31.600000381469727,
-    "y": 0.0,
-    "width": 790.4000244140625,
-    "height": 423.6000061035156
+    "x": -6.400000095367432,
+    "y": -6.400000095367432,
+    "width": 1548.800048828125,
+    "height": 836.7999877929688
   }
 }
