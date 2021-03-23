@@ -66,7 +66,8 @@ public class Robot extends TimedRobot {
     @Override
     public void disabledInit() {
         RobotContainer.getInstance().m_ballIndexer.reinizilizeIndexer();
-        RobotContainer.getInstance().m_ballIndexer.beltMotorConfig();; 
+        RobotContainer.getInstance().m_ballIndexer.beltMotorConfig();
+        RobotContainer.getInstance().m_ballAcquisition.floatSolenoid();
     }
 
     @Override
@@ -102,6 +103,12 @@ public class Robot extends TimedRobot {
         if (m_autonomousCommand != null) {
             m_autonomousCommand.cancel();
         }
+        RobotContainer.getInstance().m_ballIndexer.beltMotorConfig();
+        RobotContainer.getInstance().m_ballIndexer.reinizilizeIndexer();
+        RobotContainer.getInstance().m_shifter.shiftDown();
+        RobotContainer.getInstance().m_driveTrain.motorConfigFalcon();
+        RobotContainer.getInstance().m_ballAcquisition.floatSolenoid();
+
     }
 
     /**
