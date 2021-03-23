@@ -107,35 +107,35 @@ final JoystickButton btnFire = new JoystickButton(testJoystick, 1);
 btnFire.whileHeld(new startShootMotor( m_ballShooter ) ,true);
     SmartDashboard.putData("btnFire",new startShootMotor( m_ballShooter ) );
 
-final JoystickButton btnRetractSolenoid = new JoystickButton(testJoystick, 8);        
+final JoystickButton btnRetractSolenoid = new JoystickButton(testJoystick, 3);        
 btnRetractSolenoid.whenPressed(new retractSolenoid( m_ballAcquisition ) ,true);
     SmartDashboard.putData("btnRetractSolenoid",new retractSolenoid( m_ballAcquisition ) );
 
-final JoystickButton btnExtendSolenoid = new JoystickButton(testJoystick, 7);        
+final JoystickButton btnExtendSolenoid = new JoystickButton(testJoystick, 5);        
 btnExtendSolenoid.whenPressed(new extendSolenoid( m_ballAcquisition ).withTimeout(0.5) ,true);
     SmartDashboard.putData("btnExtendSolenoid",new extendSolenoid( m_ballAcquisition ).withTimeout(0.5) );
 
-final JoystickButton btnStopShootMotor = new JoystickButton(testJoystick, 3);        
+final JoystickButton btnStopShootMotor = new JoystickButton(testJoystick, 2);        
 btnStopShootMotor.whenReleased(new stopShootMotor( m_ballShooter ) ,true);
     SmartDashboard.putData("btnStopShootMotor",new stopShootMotor( m_ballShooter ) );
 
-final JoystickButton btnStartShootMotor = new JoystickButton(testJoystick, 3);        
+final JoystickButton btnStartShootMotor = new JoystickButton(testJoystick, 2);        
 btnStartShootMotor.whileHeld(new startShootMotor( m_ballShooter ) ,true);
     SmartDashboard.putData("btnStartShootMotor",new startShootMotor( m_ballShooter ) );
 
-final JoystickButton btnStopGateMotor = new JoystickButton(testJoystick, 6);        
+final JoystickButton btnStopGateMotor = new JoystickButton(testJoystick, 11);        
 btnStopGateMotor.whenReleased(new stopGateMotor( m_ballIndexer ) ,true);
     SmartDashboard.putData("btnStopGateMotor",new stopGateMotor( m_ballIndexer ) );
 
-final JoystickButton btnStartGateMotor = new JoystickButton(testJoystick, 6);        
+final JoystickButton btnStartGateMotor = new JoystickButton(testJoystick, 13);        
 btnStartGateMotor.whileHeld(new startGateMotor( m_ballIndexer ) ,true);
     SmartDashboard.putData("btnStartGateMotor",new startGateMotor( m_ballIndexer ) );
 
-final JoystickButton btnStopAquireMotor = new JoystickButton(testJoystick, 5);        
-btnStopAquireMotor.whenReleased(new stopAcquireMotor( m_ballAcquisition ) ,true);
-    SmartDashboard.putData("btnStopAquireMotor",new stopAcquireMotor( m_ballAcquisition ) );
+final JoystickButton btnReverseAquireMotor = new JoystickButton(testJoystick, 4);        
+btnReverseAquireMotor.whileHeld(new reverseAcquireMotor( m_ballAcquisition ) ,true);
+    SmartDashboard.putData("btnReverseAquireMotor",new reverseAcquireMotor( m_ballAcquisition ) );
 
-final JoystickButton btnRunAcquireMotor = new JoystickButton(testJoystick, 5);        
+final JoystickButton btnRunAcquireMotor = new JoystickButton(testJoystick, 6);        
 btnRunAcquireMotor.whileHeld(new startAcquireMotor( m_ballAcquisition ) ,true);
     SmartDashboard.putData("btnRunAcquireMotor",new startAcquireMotor( m_ballAcquisition ) );
 

@@ -420,7 +420,7 @@ Children:
           default: '1'
           name: Button
           validators: null
-          value: '5'
+          value: '6'
         Command: !!robotbuilder.data.properties.TypeSelectionProperty
           default: None
           name: Command
@@ -455,13 +455,13 @@ Children:
           default: '1'
           name: Button
           validators: null
-          value: '5'
+          value: '4'
         Command: !!robotbuilder.data.properties.TypeSelectionProperty
           default: None
           name: Command
           type: Command
           validators: *id014
-          value: stopAcquireMotor
+          value: reverseAcquireMotor
         Timeout: !!robotbuilder.data.properties.DoubleProperty {default: 0, name: Timeout,
           validators: null, value: 0.0}
         Add Timeout: !!robotbuilder.data.properties.BooleanProperty {default: false,
@@ -471,9 +471,9 @@ Children:
           default: whenPressed
           name: When to Run
           validators: null
-          value: whenReleased
+          value: whileHeld
       Base: Joystick Button
-      Name: btnStopAquireMotor
+      Name: btnReverseAquireMotor
     - Children: []
       Properties:
         Interruptible: !!robotbuilder.data.properties.BooleanProperty {default: true,
@@ -490,7 +490,7 @@ Children:
           default: '1'
           name: Button
           validators: null
-          value: '6'
+          value: '13'
         Command: !!robotbuilder.data.properties.TypeSelectionProperty
           default: None
           name: Command
@@ -525,7 +525,7 @@ Children:
           default: '1'
           name: Button
           validators: null
-          value: '6'
+          value: '11'
         Command: !!robotbuilder.data.properties.TypeSelectionProperty
           default: None
           name: Command
@@ -560,7 +560,7 @@ Children:
           default: '1'
           name: Button
           validators: null
-          value: '3'
+          value: '2'
         Command: !!robotbuilder.data.properties.TypeSelectionProperty
           default: None
           name: Command
@@ -595,7 +595,7 @@ Children:
           default: '1'
           name: Button
           validators: null
-          value: '3'
+          value: '2'
         Command: !!robotbuilder.data.properties.TypeSelectionProperty
           default: None
           name: Command
@@ -630,7 +630,7 @@ Children:
           default: '1'
           name: Button
           validators: null
-          value: '7'
+          value: '5'
         Command: !!robotbuilder.data.properties.TypeSelectionProperty
           default: None
           name: Command
@@ -665,7 +665,7 @@ Children:
           default: '1'
           name: Button
           validators: null
-          value: '8'
+          value: '3'
         Command: !!robotbuilder.data.properties.TypeSelectionProperty
           default: None
           name: Command
@@ -942,7 +942,7 @@ Children:
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: false}
     Base: Command
-    Name: stopAcquireMotor
+    Name: reverseAcquireMotor
   - Children: []
     Properties:
       Autonomous Selection: !!robotbuilder.data.properties.BooleanProperty {default: false,
