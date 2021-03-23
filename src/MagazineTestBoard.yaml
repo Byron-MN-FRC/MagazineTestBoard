@@ -166,14 +166,14 @@ Children:
           choices: &id009 ['0', '1', '2', '3', '4', '5', '6', '7']
           default: '0'
           name: Reverse Channel (Solenoid)
-          validators: &id011 [Solenoid]
-          value: '5'
+          validators: &id010 [Solenoid]
+          value: '1'
         Forward Channel (Solenoid): !!robotbuilder.data.properties.ChoicesProperty
           choices: &id011 ['0', '1', '2', '3', '4', '5', '6', '7']
           default: '0'
           name: Forward Channel (Solenoid)
-          validators: &id013 [Solenoid]
-          value: '4'
+          validators: &id012 [Solenoid]
+          value: '0'
       Base: Double Solenoid
       Name: leftSolenoid
     - Children: []
@@ -194,14 +194,14 @@ Children:
           choices: *id009
           default: '0'
           name: Reverse Channel (Solenoid)
-          validators: *id011
-          value: '7'
+          validators: *id010
+          value: '3'
         Forward Channel (Solenoid): !!robotbuilder.data.properties.ChoicesProperty
           choices: *id011
           default: '0'
           name: Forward Channel (Solenoid)
-          validators: *id013
-          value: '6'
+          validators: *id012
+          value: '2'
       Base: Double Solenoid
       Name: rightSolenoid
     Properties:
@@ -460,7 +460,7 @@ Children:
           default: None
           name: Command
           type: Command
-          validators: *id015
+          validators: *id014
           value: reverseAcquireMotor
         Timeout: !!robotbuilder.data.properties.DoubleProperty {default: 0, name: Timeout,
           validators: null, value: 0.0}
@@ -1160,10 +1160,12 @@ Properties:
       Number, validators: null, value: 4859}
   Export Subsystems: !!robotbuilder.data.properties.BooleanProperty {default: true,
     name: Export Subsystems, validators: null, value: true}
-  Wiring file location: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\crazy\',
-    extension: null, folder: true, name: Wiring file location, validators: null, value: 'C:\Users\heinz_\'}
-  Export Directory: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\crazy\FRCProjects',
-    extension: null, folder: true, name: Export Directory, validators: null, value: 'C:\FRC_git'}
+  Wiring file location: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\Byron
+      Robotics\', extension: null, folder: true, name: Wiring file location, validators: null,
+    value: 'C:\Users\heinz_\'}
+  Export Directory: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\Byron
+      Robotics\FRCProjects', extension: null, folder: true, name: Export Directory,
+    validators: null, value: 'C:\FRC_git'}
   Autonomous Command: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
     name: Autonomous Command, type: Command, validators: null, value: Autonomous Command}
 Base: Robot
