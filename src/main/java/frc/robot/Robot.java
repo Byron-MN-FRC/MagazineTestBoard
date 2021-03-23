@@ -66,7 +66,8 @@ public class Robot extends TimedRobot {
     */
     @Override
     public void disabledInit() {
-        // RobotContainer.getInstance().m_ballIndexer.beltMotorConfig();; 
+        RobotContainer.getInstance().m_ballIndexer.reinizilizeIndexer();
+        RobotContainer.getInstance().m_ballIndexer.beltMotorConfig();; 
     }
 
     @Override
