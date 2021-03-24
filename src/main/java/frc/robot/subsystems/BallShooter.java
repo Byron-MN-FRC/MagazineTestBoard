@@ -118,8 +118,8 @@ limitSwitchDown = new DigitalInput(0);
         //     setMasterHoodPos(masterHoodPos);
         //     setMasterShootVelocity(masterShootRPM);
         // } else {
-            shootMotor.set(ControlMode.PercentOutput, 0);
-         setMasterHoodPos(masterHoodPos);
+        //     shootMotor.set(ControlMode.PercentOutput, 0);
+        //  setMasterHoodPos(masterHoodPos);
         // }
     }
 

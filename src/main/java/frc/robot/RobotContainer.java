@@ -34,11 +34,9 @@ import frc.robot.commands.shiftUp;
 import frc.robot.commands.startAcquireMotor;
 import frc.robot.commands.startGateMotor;
 import frc.robot.commands.startLeftBeltMotor;
-import frc.robot.commands.startRightBeltMotor;
 import frc.robot.commands.startShootMotor;
 import frc.robot.commands.stopGateMotor;
 import frc.robot.commands.stopLeftBeltMotor;
-import frc.robot.commands.stopRightBeltMotor;
 import frc.robot.commands.stopShootMotor;
 import frc.robot.subsystems.BallAcquisition;
 import frc.robot.subsystems.BallIndexer;
@@ -173,14 +171,6 @@ btnRunAcquireMotor.whileHeld(new startAcquireMotor( m_ballAcquisition ) ,true);
 final JoystickButton btnAdvanceBall = new JoystickButton(testJoystick, 2);        
 btnAdvanceBall.whenPressed(new AdvanceBall( m_ballIndexer ) ,true);
     SmartDashboard.putData("btnAdvanceBall",new AdvanceBall( m_ballIndexer ) );
-
-final JoystickButton btnRightBeltStop = new JoystickButton(testJoystick, 11);        
-btnRightBeltStop.whenReleased(new stopRightBeltMotor( m_ballIndexer ) ,true);
-    SmartDashboard.putData("btnRightBeltStop",new stopRightBeltMotor( m_ballIndexer ) );
-
-final JoystickButton btnRightBeltStart = new JoystickButton(testJoystick, 11);        
-btnRightBeltStart.whileHeld(new startRightBeltMotor( m_ballIndexer ) ,true);
-    SmartDashboard.putData("btnRightBeltStart",new startRightBeltMotor( m_ballIndexer ) );
 
 final JoystickButton btnLeftBeltStop = new JoystickButton(testJoystick, 12);        
 btnLeftBeltStop.whenReleased(new stopLeftBeltMotor( m_ballIndexer ) ,true);

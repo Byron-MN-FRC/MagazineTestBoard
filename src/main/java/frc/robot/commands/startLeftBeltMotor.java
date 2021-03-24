@@ -54,6 +54,7 @@ public class startLeftBeltMotor extends CommandBase {
     @Override
     public void execute() {
         m_ballIndexer.startLeftBeltMotor();
+        m_ballIndexer.startRightBeltMotor();
     }
 
     // Called once the command ends or is interrupted.
