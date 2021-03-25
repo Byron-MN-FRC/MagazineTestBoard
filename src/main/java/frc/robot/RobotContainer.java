@@ -201,6 +201,10 @@ public DriveTrain getm_DriveTrain(){
 public Shifter getm_shifter(){
     return m_shifter;
 }
+
+public BallIndexer getm_balIndexer(){
+        return m_ballIndexer;
+}
   /**
    * Use this to pass the autonomous command to the main {@link Robot} class.
    *
