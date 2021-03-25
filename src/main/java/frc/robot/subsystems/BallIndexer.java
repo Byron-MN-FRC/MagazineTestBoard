@@ -12,8 +12,6 @@
 package frc.robot.subsystems;
 
 
-import java.time.Period;
-
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.DemandType;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
@@ -31,9 +29,6 @@ import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.BeltMotorConstants;
-
-import frc.robot.commands.startAcquireMotor;
-import frc.robot.commands.startGateMotor;
 
 	
 /**
@@ -109,49 +104,13 @@ gateSensor = new DigitalInput(7);
 			gateLoadInProgress = false;
 		}
 		if (mLoad) {
-			startLeftBeltMotor();
-			startRightBeltMotor();
+			startLeftBeltMotor(.4);
+			startRightBeltMotor(.4);
 		}
 		else {
 			stopLeftBeltMotor();
 			stopRightBeltMotor();
 		}
-		// if (gateSensor() != false &&  topSensor() != true && bottomSensor() != true) {
-		// 	gateLoad = true;
-		// 	startGateMotor();
-		//  }
-		// else if (bottomSensor() == true && gateLoad == true ){
-		// 	stopGateMotor();
-		// 	magLoad = true;
-		// }
-		// else if (bottomSensor() == true && gateLoad != true && magLoad == true && topSensor() == false){
-		// 	startLeftBeltMotor();
-		// 	startRightBeltMotor();
-		// }
-		// else if (bottomSensor() != true){
-		// 	magLoad = false;
-		// 	stopLeftBeltMotor();
-		// 	stopRightBeltMotor();
-		// }
-		// else if (topSensor() == true){
-		// 	magLoad = false;
-		// 	stopLeftBeltMotor();
-		// 	stopRightBeltMotor();
-		// 	stopGateMotor();
-		// 	gateLoad = false;
-		// }
-		
-		// // if (!bottomSensor.get() && advanceBallComplete()) {
-		// // 	advanceBall();
-		// // }
-		// /*if (gateSensor()){
-		// 	startGateMotor();
-		// }else {
-		// 	stopGateMotor();
-		// }
-		// if (bottomSensor() && advanceBallComplete()){
-		// 	advanceBall();
-		// }*/
 		
 	}
 
@@ -163,11 +122,11 @@ gateSensor = new DigitalInput(7);
 
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
-    public void startLeftBeltMotor() {
-        leftBeltMotor.set(.5);
+    public void startLeftBeltMotor(double speed) {
+        leftBeltMotor.set(speed);
     }
-    public void startRightBeltMotor() {
-        rightBeltMotor.set(.5);
+    public void startRightBeltMotor(double speed) {
+        rightBeltMotor.set(speed);
     }
     public void stopLeftBeltMotor() {
         leftBeltMotor.stopMotor();

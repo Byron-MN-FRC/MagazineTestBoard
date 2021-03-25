@@ -83,7 +83,7 @@ rightMaster = new WPI_TalonFX(3);
 
 tankDrive = new DifferentialDrive(leftMaster, rightMaster);
  addChild("TankDrive",tankDrive);
- tankDrive.setSafetyEnabled(false);
+ tankDrive.setSafetyEnabled(true);
 tankDrive.setExpiration(0.1);
 tankDrive.setMaxOutput(1.0);
 

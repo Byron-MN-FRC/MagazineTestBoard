@@ -48,8 +48,7 @@ public class stopRightBeltMotor extends CommandBase {
     // Called when the command is initially scheduled.
     @Override
     public void initialize() {
-        m_ballIndexer.stopRightBeltMotor();
-     }
+    }
 
     // Called every time the scheduler runs while the command is scheduled.
     @Override
