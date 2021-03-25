@@ -564,41 +564,6 @@ Children:
           name: Command
           type: Command
           validators: *id016
-          value: startShootMotor
-        Timeout: !!robotbuilder.data.properties.DoubleProperty {default: 0, name: Timeout,
-          validators: null, value: 0.0}
-        Add Timeout: !!robotbuilder.data.properties.BooleanProperty {default: false,
-          name: Add Timeout, validators: null, value: false}
-        When to Run: !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id017
-          default: whenPressed
-          name: When to Run
-          validators: null
-          value: whileHeld
-      Base: Joystick Button
-      Name: btnStartShootMotor
-    - Children: []
-      Properties:
-        Interruptible: !!robotbuilder.data.properties.BooleanProperty {default: true,
-          name: Interruptible, validators: null, value: true}
-        Joystick: !!robotbuilder.data.properties.ParentProperty {default: parent,
-          name: Joystick, validators: null, value: TestJoystick}
-        Parameters: !!robotbuilder.data.properties.ParametersProperty
-          default: []
-          name: Parameters
-          validators: null
-          value: []
-        Button: !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id015
-          default: '1'
-          name: Button
-          validators: null
-          value: '2'
-        Command: !!robotbuilder.data.properties.TypeSelectionProperty
-          default: None
-          name: Command
-          type: Command
-          validators: *id016
           value: stopShootMotor
         Timeout: !!robotbuilder.data.properties.DoubleProperty {default: 0, name: Timeout,
           validators: null, value: 0.0}
@@ -704,11 +669,11 @@ Children:
           name: Command
           type: Command
           validators: *id016
-          value: startShootMotor
+          value: teleopAutoShootCMD
         Timeout: !!robotbuilder.data.properties.DoubleProperty {default: 0, name: Timeout,
-          validators: null, value: 0.0}
+          validators: null, value: 10.0}
         Add Timeout: !!robotbuilder.data.properties.BooleanProperty {default: false,
-          name: Add Timeout, validators: null, value: false}
+          name: Add Timeout, validators: null, value: true}
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id017
           default: whenPressed
@@ -716,7 +681,7 @@ Children:
           validators: null
           value: whileHeld
       Base: Joystick Button
-      Name: btnFire
+      Name: btnShoot
     - Children: []
       Properties:
         Interruptible: !!robotbuilder.data.properties.BooleanProperty {default: true,
@@ -1027,7 +992,7 @@ Children:
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: false}
     Base: Command
-    Name: startShootMotor
+    Name: teleopAutoShootCMD
   - Children: []
     Properties:
       Autonomous Selection: !!robotbuilder.data.properties.BooleanProperty {default: false,
@@ -1262,10 +1227,10 @@ Children:
       Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
         name: Requires, type: Subsystem, validators: null, value: BallShooter}
       Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
-        default: &id018 []
+        default: []
         name: Parameter presets
         validators: null
-        value: *id018
+        value: []
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: false}
     Base: Command
@@ -1285,10 +1250,10 @@ Children:
       Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
         name: Requires, type: Subsystem, validators: null, value: BallIndexer}
       Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
-        default: &id019 []
+        default: []
         name: Parameter presets
         validators: null
-        value: *id019
+        value: []
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: false}
     Base: Command
