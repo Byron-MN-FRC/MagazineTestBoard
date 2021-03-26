@@ -48,6 +48,7 @@ public class runIndexBelt extends CommandBase {
     // Called when the command is initially scheduled.
     @Override
     public void initialize() {
+        m_ballIndexer.setAutoIndex(false);
     }
 
     // Called every time the scheduler runs while the command is scheduled.
@@ -61,6 +62,7 @@ public class runIndexBelt extends CommandBase {
     public void end(boolean interrupted) {
         m_ballIndexer.stopIndexMotor();
         System.out.println("Stopping belt motor");
+        m_ballIndexer.setAutoIndex(true);
     }
 
     // Returns true when the command should end.
