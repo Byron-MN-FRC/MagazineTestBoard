@@ -170,7 +170,8 @@ limitSwitchDown = new DigitalInput(0);
         if (++loop >= 15) {
             toConsoleln("ShootTarget=" + rpmToVelocityPer100ms(rpms) + " Cur="
                     + shootMotor.getSelectedSensorVelocity(BallShooterConstants.kPIDLoopIdx) + " Err="
-                    + shootMotor.getClosedLoopError(BallShooterConstants.kPIDLoopIdx) + " InThreshold " + iwthresh);
+                    + shootMotor.getClosedLoopError(BallShooterConstants.kPIDLoopIdx) + " InThreshold " + iwthresh
+                    + shootMotor.getSelectedSensorVelocity(BallShooterConstants.kPIDLoopIdx)*10*60/2048);
             toConsoleln("hoodTarget=" + hoodEncoderUnits + " Cur="
                     + hoodMotor.getSelectedSensorPosition(BallShooterConstants.kPIDLoopIdx) + " Err="
                     + hoodMotor.getClosedLoopError(BallShooterConstants.kPIDLoopIdx) + " hood at position=" + hp);

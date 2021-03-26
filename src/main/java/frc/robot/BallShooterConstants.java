@@ -14,7 +14,7 @@ public class BallShooterConstants {
 	public static final boolean kEnableCurrentLimiting_BS = true;
 
 	// Current (amp) limit
-	public static final double currentLimit = 20;
+	public static final double currentLimit = 40;
 
 	// Threshold that must be exceeded for current limiting to occur
 	public static final double thresholdLimit = 30;
@@ -35,7 +35,8 @@ public class BallShooterConstants {
 	 * Gains(kp, ki, kd, kf, izone, peak output);
 	 */
 	public static final Gains kGains_hoodMotor = new  Gains(0.7, 0.00001, 0.0, .14, 0, 1.0);
-	public static final Gains kGains_shootMotor = new Gains(0.4, 0.00001, 0.0, 0.049, 500, 1.0);
+	public static final Gains kGains_shootMotor = new Gains(1, 0.00001, 1.2, 0.049, 500, 1.0);
+	//public static final Gains kGains_shootMotor = new Gains(0.4, 0.00001, 0.0, 0.049, 500, 1.0);
 
 
 	/**
@@ -89,7 +90,7 @@ public class BallShooterConstants {
 	public static final boolean debug = true;
 	public static final boolean test = false;
 	public static final double teleopAutoShootCmdTimeout = 10;
-	public static final double kLoopsToSettle = 15;
+	public static final double kLoopsToSettle = 3;
 	public static final int kErrThreshold = 300;
 
 	/**
