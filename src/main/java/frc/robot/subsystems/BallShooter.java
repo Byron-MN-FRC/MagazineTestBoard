@@ -526,5 +526,6 @@ limitSwitchDown = new DigitalInput(0);
     public void stopHoodMotor() {
         hoodMotor.set(ControlMode.PercentOutput, 0);
     }
+
 }
 
