@@ -121,8 +121,8 @@ btnShiftDown.whenPressed(new shiftDown( m_driveTrain ) ,true);
     SmartDashboard.putData("btnShiftDown",new shiftDown( m_driveTrain ) );
 
 final JoystickButton btnResetHood = new JoystickButton(testJoystick, 10);        
-btnResetHood.whenPressed(new btnZeroHoo( m_ballShooter ).withTimeout(3.0) ,true);
-    SmartDashboard.putData("btnResetHood",new btnZeroHoo( m_ballShooter ).withTimeout(3.0) );
+btnResetHood.whenPressed(new zeroHood( m_ballShooter ).withTimeout(3.0) ,false);
+    SmartDashboard.putData("btnResetHood",new zeroHood( m_ballShooter ).withTimeout(3.0) );
 
 final JoystickButton btnShootModeOn = new JoystickButton(testJoystick, 9);        
 btnShootModeOn.whenPressed(new setShootModeOn( m_ballShooter ) ,true);
