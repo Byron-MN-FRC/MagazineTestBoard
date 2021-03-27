@@ -133,13 +133,12 @@ limitSwitchDown = new DigitalInput(0);
     }
     public void idleSubsystem() {
         masterHoodPos = BallShooterConstants.hoodIdlePosition;
+        //If we're in Autonomous we want to set the Idle velocity which is 0
         if (inAuton) {
             // masterShootRPM = BallShooterConstants.magicRPMS;
             masterShootRPM = BallShooterConstants.shootIdleVelocity;
-        /* } else if (Timer.getMatchTime() != -1) {
-            masterShootRPM = BallShooterConstants.shootIdleVelocity; */
         } else if (teleopWithIdle) {
-            masterShootRPM = BallShooterConstants.shootDefultVelocity;
+            masterShootRPM = BallShooterConstants.shootDefaultVelocity;
             masterHoodPos = BallShooterConstants.hoodShootPosition;
 
         } else {

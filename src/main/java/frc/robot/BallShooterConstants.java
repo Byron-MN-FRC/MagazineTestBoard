@@ -105,7 +105,7 @@ public class BallShooterConstants {
 	 * conservation of energy and time so that we don't need to spin up each time we try to shoot.
 	 */
 	public static final double shootIdleVelocity = 0;
-	public static final double shootDefultVelocity = -4000;
+	public static final double shootDefaultVelocity = -4000;
 	public static final double shootClimbVelocity = 0;
 
 	}
