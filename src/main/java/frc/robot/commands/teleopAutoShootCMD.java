@@ -69,7 +69,7 @@ public class teleopAutoShootCMD extends CommandBase {
         //Robot.ballShooter.prepareToShoot(rpms,hoodEncoderUnits);
         //setTimeout(BallShooterConstants.teleopAutoShootCmdTimeout);
         indexBeltRunner = new runIndexBelt(RobotContainer.getInstance().m_ballIndexer);
-        RobotContainer.getInstance().m_ballIndexer.shooterActive = true;
+        //RobotContainer.getInstance().m_ballIndexer.shooterActive = true;
     }
 
     // Called every time the scheduler runs while the command is scheduled.
@@ -100,7 +100,7 @@ public class teleopAutoShootCMD extends CommandBase {
             if (!indexBeltRunner.isFinished()) {
                 indexBeltRunner.cancel();
             }
-            RobotContainer.getInstance().m_ballIndexer.shooterActive =false;
+            //RobotContainer.getInstance().m_ballIndexer.shooterActive =false;
         
     }
 
