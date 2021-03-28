@@ -144,6 +144,10 @@ final JoystickButton btnRetractSolenoid = new JoystickButton(testJoystick, 3);
 btnRetractSolenoid.whenPressed(new retractSolenoid( m_ballAcquisition ) ,true);
     SmartDashboard.putData("btnRetractSolenoid",new retractSolenoid( m_ballAcquisition ) );
 
+final JoystickButton btnTurn2LimeLight = new JoystickButton(testJoystick, 2);        
+btnTurn2LimeLight.whenPressed(new turn2LimeLight( m_driveTrain ).withTimeout(5.0) ,true);
+    SmartDashboard.putData("btnTurn2LimeLight",new turn2LimeLight( m_driveTrain ).withTimeout(5.0) );
+
 final JoystickButton btnShoot = new JoystickButton(testJoystick, 1);        
 btnShoot.whileHeld(new teleopAutoShootCMD( m_ballShooter ).withTimeout(10.0) ,true);
     SmartDashboard.putData("btnShoot",new teleopAutoShootCMD( m_ballShooter ).withTimeout(10.0) );

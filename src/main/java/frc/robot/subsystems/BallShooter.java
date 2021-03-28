@@ -48,7 +48,6 @@ private DigitalInput limitSwitchDown;
 
     private double masterShootRPM = 0;
     private double masterHoodPos = 0;
-    private double shootIdleVelocity = 0;
 
     public boolean inAuton = false;
 
