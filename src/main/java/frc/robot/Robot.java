@@ -15,8 +15,11 @@ import edu.wpi.first.hal.FRCNetComm.tInstances;
 import edu.wpi.first.hal.FRCNetComm.tResourceType;
 import edu.wpi.first.hal.HAL;
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.Timer;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import frc.robot.LimelightUtility.StreamMode;
 
 
 /**
@@ -36,12 +39,20 @@ public class Robot extends TimedRobot {
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
      */
+    //CameraServer server;
     @Override
     public void robotInit() {
         // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
         // autonomous chooser on the dashboard.
         m_robotContainer = RobotContainer.getInstance();
         HAL.report(tResourceType.kResourceType_Framework, tInstances.kFramework_RobotBuilder);
+        m_robotContainer.m_ballAcquisition.retractSolenoid();
+        // server = CameraServer.getInstance();
+        // server.startAutomaticCapture("forward",0);
+        //SmartDashboard.putData("drive/Auto mode", chooser);
+        LimelightUtility.StreamingMode(LimelightUtility.StreamMode.PIPSecondary);
+        SmartDashboard.putString(Constants.autoPosition, "L");
+        LimelightUtility.WriteDouble("ledMode", 1); // 3 = Limelight O
     }
 
     /**
@@ -67,7 +78,12 @@ public class Robot extends TimedRobot {
     @Override
     public void disabledInit() {
         RobotContainer.getInstance().m_ballIndexer.reinizilizeIndexer();
-        RobotContainer.getInstance().m_ballIndexer.beltMotorConfig();; 
+        RobotContainer.getInstance().m_ballIndexer.beltMotorConfig(); 
+        RobotContainer.getInstance().m_ballShooter.hoodMotorConfig();
+        RobotContainer.getInstance().m_ballShooter.shootMotorConfig();
+        RobotContainer.getInstance().m_ballShooter.teleopWithIdle = false;
+        LimelightUtility.EnableDriverCamera(false);
+        LimelightUtility.StreamingMode(StreamMode.Standard);
     }
 
     @Override
@@ -79,11 +95,14 @@ public class Robot extends TimedRobot {
     */
     @Override
     public void autonomousInit() {
+        // initializeSubsystems();
+        // Robot.driveTrain.autonomousLimiting();        
         m_autonomousCommand = m_robotContainer.getAutonomousCommand();
 
         // schedule the autonomous command (example)
         if (m_autonomousCommand != null) {
             m_autonomousCommand.schedule();
+            
         }
     }
 
@@ -92,6 +111,10 @@ public class Robot extends TimedRobot {
     */
     @Override
     public void autonomousPeriodic() {
+        // ballShooter.inAuton = true;
+        // SmartDashboard.putBoolean("drive/LimeLight Target", LimelightUtility.ValidTargetFound());
+        // Scheduler.getInstance().run();
+        // SmartDashboard.putNumber("drive/Game Timer", Timer.getMatchTime());
     }
 
     @Override
@@ -103,6 +126,7 @@ public class Robot extends TimedRobot {
         if (m_autonomousCommand != null) {
             m_autonomousCommand.cancel();
         }
+        // initializeSubsystems();
     }
 
     /**
@@ -116,6 +140,7 @@ public class Robot extends TimedRobot {
     public void testInit() {
         // Cancels all running commands at the start of test mode.
         CommandScheduler.getInstance().cancelAll();
+        
     }
 
     /**
@@ -123,6 +148,23 @@ public class Robot extends TimedRobot {
     */
     @Override
     public void testPeriodic() {
+        // ballShooter.inAuton = false;
+        // Scheduler.getInstance().run();
+        LimelightUtility.RefreshTrackingData();
+        SmartDashboard.putBoolean("drive/LimeLight Target", LimelightUtility.ValidTargetFound());
+        SmartDashboard.putNumber("drive/Game Timer", Timer.getMatchTime());
     }
-
+    public void initializeSubsystems() {
+        RobotContainer.getInstance().m_driveTrain.motorConfig();
+        //RobotContainer.getInstance().m_driveTrain.zeroSensors();
+        RobotContainer.getInstance().m_ballIndexer.reinizilizeIndexer();
+        //Robot.ballIndexer.resetCount();
+        RobotContainer.getInstance().m_driveTrain.reinitializeDriveTrain();
+        RobotContainer.getInstance().m_ballShooter.reinitializeShooter();
+        RobotContainer.getInstance().m_shifter.reinitializeShifter();
+        //RobotContainer.getInstance().m_ballAcquisition.reinitlizeAquisition();
+        //Robot.climb.reInitializeClimb();
+        //Robot.controlPanel.reinitializeControlPanel();
+        LimelightUtility.WriteDouble("ledMode", 1); // 3 = Limelight O
+    }
 }
