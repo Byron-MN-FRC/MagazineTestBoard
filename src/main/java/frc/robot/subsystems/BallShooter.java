@@ -319,7 +319,7 @@ limitSwitchDown = new DigitalInput(0);
     }
 
     public boolean isLimitSwitchDown() {
-        return !limitSwitchDown.get();
+        return limitSwitchDown.get();
     }
 
     /**
@@ -476,7 +476,7 @@ limitSwitchDown = new DigitalInput(0);
 
         hoodMotor.set(ControlMode.PercentOutput, 0.6);
         // check to see if the limit switch is trippped.
-        boolean limitReached = !this.limitSwitchDown.get();
+        boolean limitReached = isLimitSwitchDown();
 
         // check to see that we are not stalled
         //boolean hoodStalled = this.hoodMotor.getSupplyCurrent() > 1;

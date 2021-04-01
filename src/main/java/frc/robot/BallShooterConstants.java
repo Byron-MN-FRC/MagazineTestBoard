@@ -62,7 +62,7 @@ public class BallShooterConstants {
 			//percentage			RPMs	Encoder
 		 put( 219, new double[] { -4000, -4600});
 		 put( 110, new double[] { -4300, -4100 });
-		 put( 0, new double[] { -4800, -3900 });
+		 put( 0, new double[] { -4800, -3000 });
 
 	 }
 	};
