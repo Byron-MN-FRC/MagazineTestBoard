@@ -78,7 +78,7 @@ public class Robot extends TimedRobot {
     @Override
     public void disabledInit() {
         RobotContainer.getInstance().m_ballIndexer.reinizilizeIndexer();
-        RobotContainer.getInstance().m_ballIndexer.beltMotorConfig(); 
+        //RobotContainer.getInstance().m_ballIndexer.beltMotorConfig(); 
         RobotContainer.getInstance().m_ballShooter.hoodMotorConfig();
         RobotContainer.getInstance().m_ballShooter.shootMotorConfig();
         RobotContainer.getInstance().m_ballShooter.teleopWithIdle = false;
@@ -158,7 +158,7 @@ public class Robot extends TimedRobot {
     }
     public void initializeSubsystems() {
         RobotContainer.getInstance().m_driveTrain.motorConfig();
-        //RobotContainer.getInstance().m_driveTrain.zeroSensors();
+        RobotContainer.getInstance().m_driveTrain.zeroSensors();
         RobotContainer.getInstance().m_ballIndexer.reinizilizeIndexer();
         //Robot.ballIndexer.resetCount();
         RobotContainer.getInstance().m_driveTrain.reinitializeDriveTrain();
