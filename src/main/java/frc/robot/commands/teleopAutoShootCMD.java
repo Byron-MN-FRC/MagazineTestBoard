@@ -10,6 +10,8 @@
 
 
 package frc.robot.commands;
+
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.BallShooterConstants;
 import frc.robot.LimelightUtility;
@@ -63,8 +65,12 @@ public class teleopAutoShootCMD extends CommandBase {
             area = 70;
         }  
         rpms = BallShooterConstants.targetPercent2ShooterParms.floorEntry((int)area).getValue()[0];
+        // Temporary read from screen
+        rpms = SmartDashboard.getNumber("sdShoot RPMS", 0);
         hoodEncoderUnits = BallShooterConstants.targetPercent2ShooterParms.floorEntry((int)area).getValue()[1];
-
+        // Temporary read from screen
+        hoodEncoderUnits = SmartDashboard.getNumber("sdHood Position", 0);
+        
         //numberOfBalls = RobotContainer.getInstance().m_ballIndexer.ballCount(); 
         //Robot.ballShooter.prepareToShoot(rpms,hoodEncoderUnits);
         //setTimeout(BallShooterConstants.teleopAutoShootCmdTimeout);
