@@ -60,9 +60,9 @@ public class BallShooterConstants {
 		// }
 		{	   //target						Hood
 			//percentage			RPMs	Encoder
-		 put( 219, new double[] { -4000, 4600});
-		 put( 110, new double[] { -4300, 4100 });
-		 put( 0, new double[] { -4800, 3900 });
+		 put( 219, new double[] { -4000, -4600});
+		 put( 110, new double[] { -4300, -4100 });
+		 put( 0, new double[] { -4800, -3900 });
 
 	 }
 	};
@@ -98,7 +98,7 @@ public class BallShooterConstants {
 	 * the control panel when we are not shooting.  
 	 */
 	public static final double hoodIdlePosition = 0;
-	public static final double hoodShootPosition = 4200;
+	public static final double hoodShootPosition = -4000;
 	
 	/**
 	 * Velocity in RPMs that the robot should idle at when not using the shooter.  This is for 

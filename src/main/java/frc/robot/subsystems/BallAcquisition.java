@@ -68,6 +68,7 @@ rightSolenoid = new DoubleSolenoid(10, 6, 7);
 
     @Override
     public void simulationPeriodic() {
+        
         // This method will be called once per scheduler run when in simulation
 
     }

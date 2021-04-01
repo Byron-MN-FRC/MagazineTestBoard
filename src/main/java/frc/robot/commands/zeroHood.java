@@ -64,7 +64,7 @@ public class zeroHood extends CommandBase {
         m_ballShooter.stopHoodMotor();
         //if we're inturupted this is the failure on the limit switch
         if (interrupted) {
-            m_ballShooter.hoodMotorConfig();
+            m_ballShooter.stopControlMode();
         }
         
     }
