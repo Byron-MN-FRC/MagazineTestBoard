@@ -77,11 +77,12 @@ public class Robot extends TimedRobot {
     */
     @Override
     public void disabledInit() {
+        RobotContainer.getInstance().m_ballShooter.teleopWithIdle = false;
         RobotContainer.getInstance().m_ballIndexer.reinizilizeIndexer();
         //RobotContainer.getInstance().m_ballIndexer.beltMotorConfig(); 
         RobotContainer.getInstance().m_ballShooter.hoodMotorConfig();
         RobotContainer.getInstance().m_ballShooter.shootMotorConfig();
-        RobotContainer.getInstance().m_ballShooter.teleopWithIdle = false;
+        
         LimelightUtility.EnableDriverCamera(false);
         LimelightUtility.StreamingMode(StreamMode.Standard);
     }
@@ -119,6 +120,7 @@ public class Robot extends TimedRobot {
 
     @Override
     public void teleopInit() {
+
         // This makes sure that the autonomous stops running when
         // teleop starts running. If you want the autonomous to
         // continue until interrupted by another command, remove
@@ -126,8 +128,11 @@ public class Robot extends TimedRobot {
         if (m_autonomousCommand != null) {
             m_autonomousCommand.cancel();
         }
+        //RobotContainer.getInstance().m_ballShooter.teleopWithIdle = false;
         initializeSubsystems();
         RobotContainer.getInstance().m_driveTrain.teleopLimiting();
+        
+        
     }
 
     /**

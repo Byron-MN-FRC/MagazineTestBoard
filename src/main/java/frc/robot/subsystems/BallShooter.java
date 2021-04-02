@@ -93,6 +93,7 @@ limitSwitchDown = new DigitalInput(0);
         SmartDashboard.putNumber("shooter/Flywheel Temp", shootMotor.getTemperature());
         SmartDashboard.putNumber("shooter/Shooter Stator Amps", shootMotor.getStatorCurrent());
         SmartDashboard.putNumber("shooter/Motor RPMs", -velocityPer100msToRpm(shootMotor.getSelectedSensorVelocity(0)));
+        //SmartDashboard.putBoolean("HoodLimitSwitch", isLimitSwitchDown());
 
         // if (Robot.climb.cMode == false) {
              setMasterHoodPos(masterHoodPos);
