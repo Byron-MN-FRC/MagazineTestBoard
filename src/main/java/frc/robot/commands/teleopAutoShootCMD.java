@@ -11,8 +11,10 @@
 
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.BallIndexerConstants;
 import frc.robot.BallShooterConstants;
 import frc.robot.LimelightUtility;
 import frc.robot.RobotContainer;
@@ -59,22 +61,22 @@ public class teleopAutoShootCMD extends CommandBase {
         LimelightUtility.RefreshTrackingData();
         // Lookup optimal RPMS &  Hood encoder units based on area (if target seen)
         if (LimelightUtility.ValidTargetFound()) {
-            area = LimelightUtility.TargetAreaPercentage * 100; 
+            area = LimelightUtility.TargetAreaPercentage * 50; 
         } else {
             System.out.println("No target");
-            area = 70;
+            area = 50;
         }  
         rpms = BallShooterConstants.targetPercent2ShooterParms.floorEntry((int)area).getValue()[0];
         // Temporary read from screen
-        rpms = SmartDashboard.getNumber("sdShoot RPMS", 0);
+        // rpms = SmartDashboard.getNumber("sdShoot RPMS", 0);
         hoodEncoderUnits = BallShooterConstants.targetPercent2ShooterParms.floorEntry((int)area).getValue()[1];
         // Temporary read from screen
-        hoodEncoderUnits = SmartDashboard.getNumber("sdHood Position", 0);
+        // hoodEncoderUnits = SmartDashboard.getNumber("sdHood Position", 0);
         
         //numberOfBalls = RobotContainer.getInstance().m_ballIndexer.ballCount(); 
         //Robot.ballShooter.prepareToShoot(rpms,hoodEncoderUnits);
         //setTimeout(BallShooterConstants.teleopAutoShootCmdTimeout);
-        indexBeltRunner = new runIndexBelt(RobotContainer.getInstance().m_ballIndexer);
+        indexBeltRunner = new runIndexBelt(BallIndexerConstants.indexMotorSpeed, RobotContainer.getInstance().m_ballIndexer);
         RobotContainer.getInstance().m_ballIndexer.setAutoIndex(false);
     }
 
@@ -83,8 +85,8 @@ public class teleopAutoShootCMD extends CommandBase {
     public void execute() {
         if (m_ballShooter.ready2Shoot(rpms, hoodEncoderUnits)) {
             if (!indexBeltRunner.isScheduled()) {
-                System.out.println("teleopAutoShootCMD is Running belt motor");
-                
+                // System.out.println("teleopAutoShootCMD is Running belt motor");
+                Timer.delay(1);
                 indexBeltRunner.schedule();
                 
             } /*else if(!RobotContainer.getInstance().m_ballIndexer.ballPresent(1)) {

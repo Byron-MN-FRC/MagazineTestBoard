@@ -121,20 +121,20 @@ btnShootModeOn.whenPressed(new setShootModeOn( m_ballShooter ) ,true);
     SmartDashboard.putData("btnShootModeOn",new setShootModeOn( m_ballShooter ) );
 
 final JoystickButton btnMagazineUp = new JoystickButton(testJoystick, 8);        
-btnMagazineUp.whileHeld(new runIndexBelt( m_ballIndexer ) ,true);
-    SmartDashboard.putData("btnMagazineUp",new runIndexBelt( m_ballIndexer ) );
+btnMagazineUp.whileHeld(new runIndexBelt(.4, m_ballIndexer) ,true);
+    SmartDashboard.putData("btnMagazineUp",new runIndexBelt(.4, m_ballIndexer) );
 
 final JoystickButton btnMagazineDown = new JoystickButton(testJoystick, 7);        
-btnMagazineDown.whileHeld(new runIndexBelt( m_ballIndexer ) ,true);
-    SmartDashboard.putData("btnMagazineDown",new runIndexBelt( m_ballIndexer ) );
+btnMagazineDown.whileHeld(new runIndexBelt(-.4, m_ballIndexer) ,true);
+    SmartDashboard.putData("btnMagazineDown",new runIndexBelt(-.4, m_ballIndexer) );
 
 final JoystickButton btnRunAcquireMotor = new JoystickButton(testJoystick, 6);        
 btnRunAcquireMotor.whileHeld(new startAcquireMotor( m_ballAcquisition ) ,true);
     SmartDashboard.putData("btnRunAcquireMotor",new startAcquireMotor( m_ballAcquisition ) );
 
 final JoystickButton btnExtendSolenoid = new JoystickButton(testJoystick, 5);        
-btnExtendSolenoid.whenPressed(new extendSolenoid( m_ballAcquisition ).withTimeout(0.5) ,true);
-    SmartDashboard.putData("btnExtendSolenoid",new extendSolenoid( m_ballAcquisition ).withTimeout(1) );
+btnExtendSolenoid.whenPressed(new extendSolenoid( m_ballAcquisition ).withTimeout(2) ,true);
+    SmartDashboard.putData("btnExtendSolenoid",new extendSolenoid( m_ballAcquisition ).withTimeout(2));
 
 final JoystickButton btnReverseAquireMotor = new JoystickButton(testJoystick, 4);        
 btnReverseAquireMotor.whileHeld(new reverseAcquireMotor( m_ballAcquisition ) ,true);

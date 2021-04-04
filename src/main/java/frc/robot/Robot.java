@@ -11,6 +11,7 @@
 
 package frc.robot;
 
+import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.hal.FRCNetComm.tInstances;
 import edu.wpi.first.hal.FRCNetComm.tResourceType;
 import edu.wpi.first.hal.HAL;
@@ -39,20 +40,23 @@ public class Robot extends TimedRobot {
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
      */
-    //CameraServer server;
+    CameraServer server;
     @Override
     public void robotInit() {
         // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
         // autonomous chooser on the dashboard.
         m_robotContainer = RobotContainer.getInstance();
+        //m_robotContainer.m_ballShooter.teleopWithIdle = false;
         HAL.report(tResourceType.kResourceType_Framework, tInstances.kFramework_RobotBuilder);
         m_robotContainer.m_ballAcquisition.retractSolenoid();
-        // server = CameraServer.getInstance();
-        // server.startAutomaticCapture("forward",0);
+        server = CameraServer.getInstance();
+        server.startAutomaticCapture("forward",0);
         //SmartDashboard.putData("drive/Auto mode", chooser);
         LimelightUtility.StreamingMode(LimelightUtility.StreamMode.PIPSecondary);
         SmartDashboard.putString(Constants.autoPosition, "L");
         LimelightUtility.WriteDouble("ledMode", 1); // 3 = Limelight O
+        //m_robotContainer.m_ballShooter.zeroOutHood();
+        SmartDashboard.putBoolean("HoodUp", false);
     }
 
     /**
@@ -128,11 +132,9 @@ public class Robot extends TimedRobot {
         if (m_autonomousCommand != null) {
             m_autonomousCommand.cancel();
         }
-        //RobotContainer.getInstance().m_ballShooter.teleopWithIdle = false;
         initializeSubsystems();
         RobotContainer.getInstance().m_driveTrain.teleopLimiting();
-        
-        
+        RobotContainer.getInstance().m_ballShooter.teleopWithIdle = SmartDashboard.getBoolean("HoodUp", false);        
     }
 
     /**
