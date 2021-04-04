@@ -60,9 +60,9 @@ public class BallShooterConstants {
 		// }
 		{	   //target						Hood
 			//percentage			RPMs	Encoder
-		 put( 90, new double[] { -5300, -3300}); //red
-		 put( 140, new double[] { -4800, -3400}); //blue
 		 put( 320, new double[] { -4500, -3500 }); //yellow
+		 put( 140, new double[] { -4800, -3400}); //blue
+		 put( 80, new double[] { -5300, -3300}); //red
 		 put( 0, new double[] { -3800, -4200 }); //green
 
 	 }

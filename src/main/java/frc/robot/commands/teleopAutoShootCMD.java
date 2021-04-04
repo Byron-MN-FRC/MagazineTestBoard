@@ -61,7 +61,7 @@ public class teleopAutoShootCMD extends CommandBase {
         LimelightUtility.RefreshTrackingData();
         // Lookup optimal RPMS &  Hood encoder units based on area (if target seen)
         if (LimelightUtility.ValidTargetFound()) {
-            area = LimelightUtility.TargetAreaPercentage * 50; 
+            area = LimelightUtility.TargetAreaPercentage * 100; 
         } else {
             System.out.println("No target");
             area = 50;
