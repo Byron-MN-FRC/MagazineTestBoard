@@ -179,7 +179,7 @@ tankDrive.setMaxOutput(1.0);
         leftMaster.configPeakOutputReverse(-max, Constants.kTimeoutMs);
         rightMaster.configPeakOutputForward(max, Constants.kTimeoutMs);
         rightMaster.configPeakOutputReverse(-max, Constants.kTimeoutMs);
-        tankDrive.arcadeDrive(y,  -twist);        
+        tankDrive.arcadeDrive(y,  twist);        
     }
 
     public void motorConfig() {
@@ -524,8 +524,8 @@ tankDrive.setMaxOutput(1.0);
         leftMaster.configPeakOutputReverse(-max, Constants.kTimeoutMs);
         rightMaster.configPeakOutputForward(max, Constants.kTimeoutMs);
         rightMaster.configPeakOutputReverse(-max, Constants.kTimeoutMs);
-        leftMaster.configOpenloopRamp(1.0,Constants.kTimeoutMs);
-        rightMaster.configOpenloopRamp(1.0,Constants.kTimeoutMs);
+        leftMaster.configOpenloopRamp(1.5,Constants.kTimeoutMs);
+        rightMaster.configOpenloopRamp(1.5,Constants.kTimeoutMs);
     //    leftMaster.configOpenloopRamp(1.5,Constants.kTimeoutMs);
     //    leftMaster.configOpenloopRamp(1.5,Constants.kTimeoutMs);
     }

@@ -61,7 +61,7 @@ public class teleopAutoShootCMD extends CommandBase {
         LimelightUtility.RefreshTrackingData();
         // Lookup optimal RPMS &  Hood encoder units based on area (if target seen)
         if (LimelightUtility.ValidTargetFound()) {
-            area = LimelightUtility.TargetAreaPercentage * 50; 
+            area = LimelightUtility.TargetAreaPercentage * 100; 
         } else {
             System.out.println("No target");
             area = 50;
@@ -76,8 +76,8 @@ public class teleopAutoShootCMD extends CommandBase {
         //numberOfBalls = RobotContainer.getInstance().m_ballIndexer.ballCount(); 
         //Robot.ballShooter.prepareToShoot(rpms,hoodEncoderUnits);
         //setTimeout(BallShooterConstants.teleopAutoShootCmdTimeout);
-        indexBeltRunner = new runIndexBelt(BallIndexerConstants.indexMotorSpeed, RobotContainer.getInstance().m_ballIndexer);
         RobotContainer.getInstance().m_ballIndexer.setAutoIndex(false);
+        indexBeltRunner = new runIndexBelt(BallIndexerConstants.indexMotorSpeed, RobotContainer.getInstance().m_ballIndexer);
     }
 
     // Called every time the scheduler runs while the command is scheduled.

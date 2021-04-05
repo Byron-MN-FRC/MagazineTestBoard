@@ -52,7 +52,8 @@ public class Robot extends TimedRobot {
         server = CameraServer.getInstance();
         server.startAutomaticCapture("forward",0);
         //SmartDashboard.putData("drive/Auto mode", chooser);
-        LimelightUtility.StreamingMode(LimelightUtility.StreamMode.PIPSecondary);
+        LimelightUtility.EnableDriverCamera(true);
+        LimelightUtility.StreamingMode(LimelightUtility.StreamMode.Standard);
         SmartDashboard.putString(Constants.autoPosition, "L");
         LimelightUtility.WriteDouble("ledMode", 1); // 3 = Limelight O
         //m_robotContainer.m_ballShooter.zeroOutHood();
@@ -88,7 +89,7 @@ public class Robot extends TimedRobot {
         RobotContainer.getInstance().m_ballShooter.shootMotorConfig();
         
         LimelightUtility.EnableDriverCamera(false);
-        LimelightUtility.StreamingMode(StreamMode.Standard);
+        //LimelightUtility.StreamingMode(StreamMode.Standard);
     }
 
     @Override
