@@ -86,7 +86,7 @@ public class teleopAutoShootCMD extends CommandBase {
         if (m_ballShooter.ready2Shoot(rpms, hoodEncoderUnits)) {
             if (!indexBeltRunner.isScheduled()) {
                 // System.out.println("teleopAutoShootCMD is Running belt motor");
-                Timer.delay(1);
+                // Timer.delay(1);
                 indexBeltRunner.schedule();
                 
             } /*else if(!RobotContainer.getInstance().m_ballIndexer.ballPresent(1)) {
