@@ -771,9 +771,9 @@
               "Graph/Visible time": 30.0,
               "Graph/X-axis auto scrolling": true,
               "Y-axis/Automatic bounds": false,
-              "Y-axis/Upper bound": 600.0,
-              "Y-axis/Lower bound": -600.0,
-              "Y-axis/Unit": "ul",
+              "Y-axis/Upper bound": 150.0,
+              "Y-axis/Lower bound": -150.0,
+              "Y-axis/Unit": "Velocity",
               "Visible data/SmartDashboard/Shooter/ShootMotorError": true
             }
           },
@@ -834,7 +834,7 @@
               "Colors/Color when false": "#8B0000FF"
             }
           },
-          "3,0": {
+          "9,0": {
             "size": [
               1,
               1
@@ -845,7 +845,7 @@
               "_title": "/HoodTarget"
             }
           },
-          "9,0": {
+          "3,0": {
             "size": [
               1,
               1
@@ -855,15 +855,37 @@
               "_source0": "network_table:///SmartDashboard/Shooter/ShootTarget",
               "_title": "/ShootTarget"
             }
+          },
+          "1,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/Shooter/ShootMotorError",
+              "_title": "/SmartDashboard/Shooter/ShootMotorError"
+            }
+          },
+          "7,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/Shooter/HoodError",
+              "_title": "/SmartDashboard/Shooter/HoodError"
+            }
           }
         }
       }
     }
   ],
   "windowGeometry": {
-    "x": -1843.0,
-    "y": -220.0,
-    "width": 1760.0,
-    "height": 755.0
+    "x": -1846.0,
+    "y": -184.0,
+    "width": 1764.0,
+    "height": 723.0
   }
 }

@@ -88,12 +88,21 @@ limitSwitchDown = new DigitalInput(0);
             SmartDashboard.putBoolean("HoodLimitSwitch", isLimitSwitchDown());
         }
 
-        SmartDashboard.putNumber("shooter/Flywheel Velocity(RPM)",
-                velocityPer100msToRpm(shootMotor.getSelectedSensorVelocity(0)));
-        SmartDashboard.putNumber("shooter/Flywheel Temp", shootMotor.getTemperature());
-        SmartDashboard.putNumber("shooter/Shooter Stator Amps", shootMotor.getStatorCurrent());
+        double err = hoodMotor.getClosedLoopError(BallShooterConstants.kPIDLoopIdx);
+        SmartDashboard.putNumber("Shooter/HoodError", err);
+        SmartDashboard.putBoolean("Shooter/HoodReady", Math.abs(err) < BallShooterConstants.kHoodPositionTolerance);
+
+        int closedLpErr = Math.abs(shootMotor.getClosedLoopError(BallShooterConstants.kPIDLoopIdx));
+        SmartDashboard.putNumber("Shooter/ShootMotorError", closedLpErr);
+        SmartDashboard.putBoolean("Shooter/ShootMotorReady",_withinThresholdLoops > BallShooterConstants.kLoopsToSettle);
+
+
+        //SmartDashboard.putNumber("shooter/Flywheel Velocity(RPM)",
+        //        velocityPer100msToRpm(shootMotor.getSelectedSensorVelocity(0)));
+        //SmartDashboard.putNumber("shooter/Flywheel Temp", shootMotor.getTemperature());
+        //SmartDashboard.putNumber("shooter/Shooter Stator Amps", shootMotor.getStatorCurrent());
         SmartDashboard.putNumber("shooter/Motor RPMs", -velocityPer100msToRpm(shootMotor.getSelectedSensorVelocity(0)));
-        //SmartDashboard.putBoolean("HoodLimitSwitch", isLimitSwitchDown());
+        SmartDashboard.putBoolean("HoodLimitSwitch", isLimitSwitchDown());
 
         // if (Robot.climb.cMode == false) {
              setMasterHoodPos(masterHoodPos);
@@ -112,12 +121,13 @@ limitSwitchDown = new DigitalInput(0);
 
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
-    public void fireMotor(double rpms) {
-        toConsoleln("fireMotor() called");
-        masterHoodPos = BallShooterConstants.kHoodUpEncoderMax;
-        masterShootRPM = rpms;
-        setMasterShootVelocity(rpms);
-    }
+    // public void fireMotor(double rpms) {
+    //     toConsoleln("fireMotor() called");
+    //     masterHoodPos = BallShooterConstants.kHoodUpEncoderMax;
+    //     masterShootRPM = rpms;
+    //     setMasterShootVelocity(rpms);
+    // }
+
     public void idleSubsystem() {
         masterHoodPos = BallShooterConstants.hoodIdlePosition;
         //If we're in Autonomous we want to set the Idle velocity which is 0
@@ -388,9 +398,10 @@ limitSwitchDown = new DigitalInput(0);
      */
     public boolean isWithinThreshold() {
         /* Check if closed loop error is within the threshld */
-        int closedLpErr = (shootMotor.getClosedLoopError(BallShooterConstants.kPIDLoopIdx));
+        int closedLpErr = Math.abs(shootMotor.getClosedLoopError(BallShooterConstants.kPIDLoopIdx));
 
-        if (closedLpErr < +BallShooterConstants.kErrThreshold && closedLpErr > -BallShooterConstants.kErrThreshold) {
+
+        if (closedLpErr < BallShooterConstants.kShootMotorRPMTolerance) {
             ++_withinThresholdLoops;
             toConsoleln("incrementing threshold loops: " + _withinThresholdLoops);
         } else {
@@ -398,7 +409,7 @@ limitSwitchDown = new DigitalInput(0);
             toConsoleln("restart threshold loops: " + _withinThresholdLoops);
         }
 
-        SmartDashboard.putNumber("Shooter/ShootMotorError", closedLpErr-BallShooterConstants.kErrThreshold);
+        SmartDashboard.putNumber("Shooter/ShootMotorError", closedLpErr);
         SmartDashboard.putBoolean("Shooter/ShootMotorReady",_withinThresholdLoops > BallShooterConstants.kLoopsToSettle);
 
         return (_withinThresholdLoops > BallShooterConstants.kLoopsToSettle);
@@ -406,9 +417,6 @@ limitSwitchDown = new DigitalInput(0);
 
     public boolean hoodAtPosition() {
         final double err = hoodMotor.getClosedLoopError(BallShooterConstants.kPIDLoopIdx);
-        
-        SmartDashboard.putNumber("Shooter/HoodError", err);
-        SmartDashboard.putBoolean("Shooter/HoodReady", Math.abs(err) < BallShooterConstants.kHoodPositionTolerance);
         
         return Math.abs(err) < BallShooterConstants.kHoodPositionTolerance;
     }

@@ -112,7 +112,16 @@ public class teleopAutoShootCMD extends CommandBase {
             }
             RobotContainer.getInstance().m_ballIndexer.setAutoIndex(true);
         
-    }
+            SmartDashboard.putNumber("Shooter/HoodTarget", 0);
+            SmartDashboard.putNumber("Shooter/ShootTarget", 0);
+            SmartDashboard.putNumber("Shooter/ShootMotorError", 0);
+            SmartDashboard.putBoolean("Shooter/ShootMotorReady",false);
+            SmartDashboard.putNumber("Shooter/HoodError", 0);
+            SmartDashboard.putBoolean("Shooter/HoodReady", false);
+            SmartDashboard.putBoolean("Shooter/ReadyToShoot", false);
+
+     
+        }
 
     // Returns true when the command should end.
     @Override
