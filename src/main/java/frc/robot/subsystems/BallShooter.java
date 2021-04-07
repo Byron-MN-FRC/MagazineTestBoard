@@ -177,8 +177,8 @@ limitSwitchDown = new DigitalInput(0);
 
         // return isWithinThreshold() && hoodAtPosition();
         if (iwthresh && hp) {
-            LimelightUtility.WriteDouble("ledMode", 1); // 1 = Limelight Off
-            LimelightUtility.EnableDriverCamera(true);
+            //LimelightUtility.WriteDouble("ledMode", 1); // 1 = Limelight Off
+            //LimelightUtility.EnableDriverCamera(true);
         }
 
         SmartDashboard.putBoolean("Shooter/ReadyToShoot", iwthresh && hp);

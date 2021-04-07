@@ -10,7 +10,7 @@ public class BallShooterConstants {
 	public final static double kHoodPositionTolerance = 50;
 	
 	// Shoot motor Constants
-	public final static double kShootMotorRPMTolerance = 300;//rpms
+	public final static double kShootMotorRPMTolerance = 200;//rpms
 	public static final boolean kEnableCurrentLimiting_BS = true;
 
 	// Current (amp) limit
@@ -34,14 +34,15 @@ public class BallShooterConstants {
     /*
 	 * Gains(kp, ki, kd, kf, izone, peak output);
 	 */
-	public static final Gains kGains_hoodMotor = new  Gains(0.7, 0.00001, 0.0, .14, 0, 0);
+//	public static final Gains kGains_hoodMotor = new  Gains(0.7, 0.00001, 0.0, .14, 0, 0);
+	public static final Gains kGains_hoodMotor = new  Gains(0.8, 0.00005, 0.0, .99, 0, 0);
 	//public static final Gains kGains_shootMotor = new Gains(0.149600029, 0.00001, 1.4956, 0.04760003, 500, 1.0);
 	public static final Gains kGains_shootMotor =   new Gains(0.149600029, 0.000015, 0, 0.049, 0, 0);
 
 
 	/**
 	 * This is our best shooting position, edge of control panel trough
-	 */la
+	 */
 	//
 	public static final double magicRPMS = -4725;
 	
@@ -60,14 +61,15 @@ public class BallShooterConstants {
 		// }
 		{	   //target						Hood
 			//percentage			RPMs	Encoder
-		 put( 320, new double[] { -3800, -4000 }); //yellow
-		 put( 260, new double[] { -4200, -3720 }); 
-		 put( 210, new double[] { -4000, -3620});
-		 put( 140, new double[] { -4800, -3220});  //blue
-		 put( 120, new double[] { -4900, -3220}); 
-		 put( 80, new double[] { -5100, -3220}); //red
-		 put( 70, new double[] { -5500, -3120}); 
-		 put( 0, new double[] { -3800, -4000 }); //green
+			put( 0, new double[] { -3800, -4400 }); //green
+			put( 400, new double[] { -3750, -4200 }); //green
+			put( 320, new double[] { -3800, -4000 }); //yellow
+			put( 260, new double[] { -4200, -3720 }); 
+			put( 210, new double[] { -4000, -3620});
+			put( 140, new double[] { -4800, -3400});  //blue
+			put( 120, new double[] { -4900, -3450}); 
+			put( 80, new double[] { -5100, -3550}); //red
+			put( 70, new double[] { -5400, -3600}); 
 
 	 }
 	};
@@ -95,22 +97,22 @@ public class BallShooterConstants {
 	public static final boolean debug = true;
 	public static final boolean test = false;
 	public static final double teleopAutoShootCmdTimeout = 10;
-	public static final double kLoopsToSettle = 3;
-	public static final int kErrThreshold = 300;
+	public static final double kLoopsToSettle = 10;
+	//public static final int kErrThreshold = 300;
 
 	/**
 	 * Position the hood is moved to when idleing.  This should be 0 or stowed so that we can drive under
 	 * the control panel when we are not shooting.  
 	 */
 	public static final double hoodIdlePosition = 0;
-	public static final double hoodShootPosition = -3300; //3750
+	public static final double hoodShootPosition = -3450; //3750
 	
 	/**
 	 * Velocity in RPMs that the robot should idle at when not using the shooter.  This is for 
 	 * conservation of energy and time so that we don't need to spin up each time we try to shoot.
 	 */
 	public static final double shootIdleVelocity = 0;
-	public static final double shootDefaultVelocity = -4500;
+	public static final double shootDefaultVelocity = -4900;
 	public static final double shootClimbVelocity = 0;
 
 	}

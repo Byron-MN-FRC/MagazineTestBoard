@@ -770,7 +770,7 @@
               "_title": "/ShootMotorError",
               "Graph/Visible time": 30.0,
               "Graph/X-axis auto scrolling": true,
-              "Y-axis/Automatic bounds": false,
+              "Y-axis/Automatic bounds": true,
               "Y-axis/Upper bound": 150.0,
               "Y-axis/Lower bound": -150.0,
               "Y-axis/Unit": "Velocity",
@@ -814,9 +814,9 @@
               "_title": "/HoodError",
               "Graph/Visible time": 30.0,
               "Graph/X-axis auto scrolling": true,
-              "Y-axis/Automatic bounds": false,
-              "Y-axis/Upper bound": 100.0,
-              "Y-axis/Lower bound": -100.0,
+              "Y-axis/Automatic bounds": true,
+              "Y-axis/Upper bound": 1000.0,
+              "Y-axis/Lower bound": -1000.0,
               "Y-axis/Unit": "ul",
               "Visible data/SmartDashboard/Shooter/HoodError": true
             }
@@ -877,6 +877,17 @@
               "_source0": "network_table:///SmartDashboard/Shooter/HoodError",
               "_title": "/SmartDashboard/Shooter/HoodError"
             }
+          },
+          "5,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///limelight/ta",
+              "_title": "/limelight/ta"
+            }
           }
         }
       }
@@ -885,7 +896,7 @@
   "windowGeometry": {
     "x": -1846.0,
     "y": -184.0,
-    "width": 1764.0,
-    "height": 723.0
+    "width": 1776.0,
+    "height": 753.0
   }
 }
