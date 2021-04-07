@@ -78,6 +78,8 @@ public class teleopAutoShootCMD extends CommandBase {
         //setTimeout(BallShooterConstants.teleopAutoShootCmdTimeout);
         RobotContainer.getInstance().m_ballIndexer.setAutoIndex(false);
         indexBeltRunner = new runIndexBelt(BallIndexerConstants.indexMotorSpeed, RobotContainer.getInstance().m_ballIndexer);
+        SmartDashboard.putNumber("Shooter/HoodTarget", hoodEncoderUnits);
+        SmartDashboard.putNumber("Shooter/ShootTarget", rpms);
     }
 
     // Called every time the scheduler runs while the command is scheduled.

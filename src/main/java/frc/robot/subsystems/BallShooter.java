@@ -171,6 +171,8 @@ limitSwitchDown = new DigitalInput(0);
             LimelightUtility.EnableDriverCamera(true);
         }
 
+        SmartDashboard.putBoolean("Shooter/ReadyToShoot", iwthresh && hp);
+
         return iwthresh && hp;
     }
 
@@ -386,23 +388,29 @@ limitSwitchDown = new DigitalInput(0);
      */
     public boolean isWithinThreshold() {
         /* Check if closed loop error is within the threshld */
+        int closedLpErr = (shootMotor.getClosedLoopError(BallShooterConstants.kPIDLoopIdx));
 
-        if (shootMotor.getClosedLoopError(BallShooterConstants.kPIDLoopIdx) < +BallShooterConstants.kErrThreshold
-                && shootMotor
-                        .getClosedLoopError(BallShooterConstants.kPIDLoopIdx) > -BallShooterConstants.kErrThreshold) {
+        if (closedLpErr < +BallShooterConstants.kErrThreshold && closedLpErr > -BallShooterConstants.kErrThreshold) {
             ++_withinThresholdLoops;
             toConsoleln("incrementing threshold loops: " + _withinThresholdLoops);
         } else {
             _withinThresholdLoops = 0;
             toConsoleln("restart threshold loops: " + _withinThresholdLoops);
         }
+
+        SmartDashboard.putNumber("Shooter/ShootMotorError", closedLpErr-BallShooterConstants.kErrThreshold);
+        SmartDashboard.putBoolean("Shooter/ShootMotorReady",_withinThresholdLoops > BallShooterConstants.kLoopsToSettle);
+
         return (_withinThresholdLoops > BallShooterConstants.kLoopsToSettle);
     }
 
     public boolean hoodAtPosition() {
         final double err = hoodMotor.getClosedLoopError(BallShooterConstants.kPIDLoopIdx);
+        
+        SmartDashboard.putNumber("Shooter/HoodError", err);
+        SmartDashboard.putBoolean("Shooter/HoodReady", Math.abs(err) < BallShooterConstants.kHoodPositionTolerance);
+        
         return Math.abs(err) < BallShooterConstants.kHoodPositionTolerance;
-        //return true;
     }
 
     double pp = 0;
