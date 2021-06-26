@@ -64,12 +64,12 @@ public class BallShooterConstants {
 			put( 0, new double[] { -3800, -4400 }); //green
 			put( 400, new double[] { -3750, -4200 }); //green
 			put( 320, new double[] { -3800, -4000 }); //yellow
-			put( 260, new double[] { -4200, -3720 }); 
+			put( 245, new double[] { -4200, -4000 }); 
 			put( 210, new double[] { -4000, -3620});
-			put( 140, new double[] { -4800, -3400});  //blue
-			put( 120, new double[] { -4900, -3450}); 
+			put( 140, new double[] { -4900, -3600});  //blue
+			put( 120, new double[] { -5000, -3700}); 
 			put( 80, new double[] { -5100, -3550}); //red
-			put( 70, new double[] { -5400, -3600}); 
+			put( 70, new double[] { -5600, -3600}); 
 
 	 }
 	};

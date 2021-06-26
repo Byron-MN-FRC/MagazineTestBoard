@@ -49,8 +49,8 @@ public class Robot extends TimedRobot {
         //m_robotContainer.m_ballShooter.teleopWithIdle = false;
         HAL.report(tResourceType.kResourceType_Framework, tInstances.kFramework_RobotBuilder);
         m_robotContainer.m_ballAcquisition.retractSolenoid();
-        //server = CameraServer.getInstance();
-        //server.startAutomaticCapture("forward",0);
+        server = CameraServer.getInstance();
+        server.startAutomaticCapture("forward",0);
         //SmartDashboard.putData("drive/Auto mode", chooser);
         LimelightUtility.EnableDriverCamera(true);
         LimelightUtility.StreamingMode(LimelightUtility.StreamMode.Standard);
@@ -143,6 +143,7 @@ public class Robot extends TimedRobot {
      */
     @Override
     public void teleopPeriodic() {
+        RobotContainer.getInstance().m_driveTrain.teleopLimiting();
     }
 
     @Override
