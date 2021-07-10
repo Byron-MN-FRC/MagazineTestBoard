@@ -61,15 +61,15 @@ public class BallShooterConstants {
 		// }
 		{	   //target						Hood
 			//percentage			RPMs	Encoder
-			put( 0, new double[] { -3800, -4400 }); //green
-			put( 400, new double[] { -3750, -4200 }); //green
-			put( 320, new double[] { -3800, -4000 }); //yellow
-			put( 245, new double[] { -4200, -4000 }); 
-			put( 210, new double[] { -4000, -3620});
-			put( 140, new double[] { -4900, -3600});  //blue
-			put( 120, new double[] { -5000, -3700}); 
-			put( 80, new double[] { -5100, -3550}); //red
-			put( 70, new double[] { -5600, -3600}); 
+			put( 0, new double[] { -3800, -9880 }); //green
+			put( 400, new double[] { -3750, -10920 }); //green
+			put( 320, new double[] { -3800, -10400 }); //yellow
+			put( 245, new double[] { -4200, -10400 }); 
+			put( 210, new double[] { -4000, -9412});
+			put( 140, new double[] { -4900, -9360});  //blue
+			put( 120, new double[] { -5000, -9620}); 
+			put( 80, new double[] { -5100, -9230}); //red
+			put( 70, new double[] { -5600, -9360}); 
 
 	 }
 	};
