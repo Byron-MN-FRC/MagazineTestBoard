@@ -6,7 +6,7 @@ import java.util.TreeMap;
 
 public class BallShooterConstants {
 	//hood  Constants 
-	public final static double kHoodUpEncoderMax = 3900;
+	public final static double kHoodUpEncoderMax = -10920; // 3900;
 	public final static double kHoodPositionTolerance = 50;
 	
 	// Shoot motor Constants
@@ -44,7 +44,7 @@ public class BallShooterConstants {
 	 * This is our best shooting position, edge of control panel trough
 	 */
 	//
-	public static final double magicRPMS = -4725;
+	//public static final double magicRPMS = -4725;
 	
 	public static final TreeMap<Integer, double[]> targetPercent2ShooterParms = new TreeMap<Integer, double[]>() {
 		private static final long serialVersionUID = 1L;
@@ -64,6 +64,7 @@ public class BallShooterConstants {
 			put( 0, new double[] { -3800, -9880 }); //green
 			put( 400, new double[] { -3750, -10920 }); //green
 			put( 320, new double[] { -3800, -10400 }); //yellow
+			put( 265, new double[] { -4200, -8750 }); 
 			put( 245, new double[] { -4200, -10400 }); 
 			put( 210, new double[] { -4000, -9412});
 			put( 140, new double[] { -4900, -9360});  //blue
@@ -105,7 +106,7 @@ public class BallShooterConstants {
 	 * the control panel when we are not shooting.  
 	 */
 	public static final double hoodIdlePosition = 0;
-	public static final double hoodShootPosition = -3450; //3750
+	public static final double hoodShootPosition = -8750 ; //-3450;
 	
 	/**
 	 * Velocity in RPMs that the robot should idle at when not using the shooter.  This is for 
