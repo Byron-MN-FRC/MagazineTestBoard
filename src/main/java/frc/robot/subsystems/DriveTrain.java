@@ -165,7 +165,7 @@ tankDrive.setMaxOutput(1.0);
         // syntax
 
      //   twist = (twist < 0) ? -Math.pow(Deadband(twist), 2) : Math.pow(Deadband(twist), 2);
-     double max = 1.0;
+     double max = .3;
         if (RobotContainer.getInstance().getm_shifter().highGear == true){
             max = .7;
            /* leftMaster.configPeakOutputForward(max, Constants.kTimeoutMs);
@@ -531,8 +531,8 @@ tankDrive.setMaxOutput(1.0);
         leftMaster.configPeakOutputReverse(-max, Constants.kTimeoutMs);
         rightMaster.configPeakOutputForward(max, Constants.kTimeoutMs);
         rightMaster.configPeakOutputReverse(-max, Constants.kTimeoutMs);
-        leftMaster.configOpenloopRamp(.8,Constants.kTimeoutMs);
-        rightMaster.configOpenloopRamp(.8,Constants.kTimeoutMs);
+        leftMaster.configOpenloopRamp(1,Constants.kTimeoutMs);
+        rightMaster.configOpenloopRamp(1,Constants.kTimeoutMs);
     //    leftMaster.configOpenloopRamp(1.5,Constants.kTimeoutMs);
     //    leftMaster.configOpenloopRamp(1.5,Constants.kTimeoutMs);
     }
