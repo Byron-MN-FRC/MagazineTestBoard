@@ -543,6 +543,7 @@ tankDrive.setMaxOutput(1.0);
     public TalonFXConfiguration getRightMotor() {
         return _rightConfig;
     }
+    
 }
 
 

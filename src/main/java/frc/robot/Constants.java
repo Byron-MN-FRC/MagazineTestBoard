@@ -84,7 +84,8 @@ public class Constants {
 		public final static int kSlot_Distanc = SLOT_0;
         public final static int kSlot_Turning = SLOT_1;
         public final static int kSlot_Velocit = SLOT_2;
-		public final static int kSlot_MotProf = SLOT_3; 
+        public final static int kSlot_MotProf = SLOT_3; 
+        
 
     public static final class BeltMotorConstants {
         /**
