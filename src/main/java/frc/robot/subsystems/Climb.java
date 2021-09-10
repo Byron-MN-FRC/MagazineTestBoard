@@ -12,6 +12,7 @@
 package frc.robot.subsystems;
 
 
+import frc.robot.RobotContainer;
 import frc.robot.commands.*;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -59,6 +60,33 @@ climbMotor = new WPI_TalonSRX(6);
         // This method will be called once per scheduler run when in simulation
 
     }
+
+    public void ClimbUp(){
+        climbMotor.set(.5);
+    }
+
+    public void ClimbStop(){
+        climbMotor.set(0);
+    }
+
+    public void ClimbDown(){
+        climbMotor.set(-.5);
+    }
+
+    public void clambering() {
+
+    double POV = RobotContainer.getInstance().getTestJoystick().getPOV();
+    
+    if (POV == 0){
+        ClimbUp();
+    }
+    else if (POV == 180){
+        ClimbDown();
+    }
+    else {
+        ClimbStop();
+    }
+}
 
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
