@@ -10,6 +10,7 @@
 
 
 package frc.robot.commands;
+import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import frc.robot.subsystems.BallAcquisition;
 import frc.robot.subsystems.BallIndexer;
@@ -41,11 +42,13 @@ public class AutoMiddle extends SequentialCommandGroup {
         //          new command3(argsN, subsystem)
         //      )    
         //  );
-        new zeroHood(m_ballShooter),
-        new turn2LimeLight(m_driveTrain),
-        new teleopAutoShootCMD(m_ballShooter),
+        new ParallelCommandGroup(
+            new zeroHood(m_ballShooter),
+            new turn2LimeLight(m_driveTrain)
+        ),
+        //new teleopAutoShootCMD(m_ballShooter),
         //new autoTurn(100, m_driveTrain);
-        new driveFeet(2, m_driveTrain)
+        new driveFeet(2, 0, m_driveTrain)
         );
     }
 

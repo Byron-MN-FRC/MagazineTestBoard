@@ -10,6 +10,9 @@
 
 
 package frc.robot.commands;
+
+import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
+import edu.wpi.first.wpilibj2.command.ParallelRaceGroup;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import frc.robot.subsystems.BallAcquisition;
 import frc.robot.subsystems.BallIndexer;
@@ -41,18 +44,22 @@ public class AutoLeft extends SequentialCommandGroup {
         //          new command3(argsN, subsystem)
         //      )    
         //  );
-
-            new zeroHood(m_ballShooter),
-            new setShootModeOn(m_ballShooter),
-            new driveFeet(6.5, m_driveTrain).withTimeout(5),
-            new autoTurn(30, m_driveTrain),
-            new turn2LimeLight(m_driveTrain),
-            new teleopAutoShootCMD(m_ballShooter),
-            new autoTurn(-30, m_driveTrain),
-            new extendSolenoid(m_ballAcquisition),
+        new ParallelCommandGroup(
+            new zeroHood(m_ballShooter)
+            //new setShootModeOn(m_ballShooter),
+            
+        ),
+        new driveFeet(6.5, 0, m_driveTrain).withTimeout(3.5),
+        new autoTurn(25, m_driveTrain),
+        new turn2LimeLight(m_driveTrain),
+        //new teleopAutoShootCMD(m_ballShooter),
+        new autoTurn(-25, m_driveTrain),
+        new extendSolenoid(m_ballAcquisition).withTimeout(3),
+        new ParallelRaceGroup(
             new startAcquireMotor(m_ballAcquisition),
-            new driveFeet(9, m_driveTrain)
-    
+            new driveFeet(9, 0, m_driveTrain).withTimeout(5)
+        ),
+        new driveFeet(-9, 0, m_driveTrain).withTimeout(5)   
         );
     }
 

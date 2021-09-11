@@ -738,7 +738,7 @@ Children:
           validators: *id016
           value: zeroHood
         Timeout: !!robotbuilder.data.properties.DoubleProperty {default: 0, name: Timeout,
-          validators: null, value: 3.0}
+          validators: null, value: 8.0}
         Add Timeout: !!robotbuilder.data.properties.BooleanProperty {default: false,
           name: Add Timeout, validators: null, value: true}
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
@@ -1175,6 +1175,7 @@ Children:
         value:
         - !!robotbuilder.data.properties.ParameterDescriptor {name: distanceInFeet,
           type: double}
+        - !!robotbuilder.data.properties.ParameterDescriptor {name: speed, type: double}
       Run When Disabled: !!robotbuilder.data.properties.BooleanProperty {default: false,
         name: Run When Disabled, validators: null, value: false}
       Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
@@ -1229,9 +1230,9 @@ Properties:
       Number, validators: null, value: 4859}
   Export Subsystems: !!robotbuilder.data.properties.BooleanProperty {default: true,
     name: Export Subsystems, validators: null, value: true}
-  Wiring file location: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\heinz_\',
+  Wiring file location: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\crazy\',
     extension: null, folder: true, name: Wiring file location, validators: null, value: 'C:\Users\heinz_\'}
-  Export Directory: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\heinz_\FRCProjects',
+  Export Directory: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\crazy\FRCProjects',
     extension: null, folder: true, name: Export Directory, validators: null, value: 'C:\FRC_git'}
   Autonomous Command: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
     name: Autonomous Command, type: Command, validators: null, value: DoNothing}

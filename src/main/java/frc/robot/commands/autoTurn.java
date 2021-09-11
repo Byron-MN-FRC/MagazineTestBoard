@@ -66,6 +66,8 @@ private boolean ranOnce = false;
     // Called once the command ends or is interrupted.
     @Override
     public void end(boolean interrupted) {
+        m_driveTrain.stop();
+        m_driveTrain.motorConfigFalcon();
     }
 
     // Returns true when the command should end.

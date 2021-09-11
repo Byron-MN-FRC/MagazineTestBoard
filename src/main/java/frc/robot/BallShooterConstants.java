@@ -7,7 +7,7 @@ import java.util.TreeMap;
 public class BallShooterConstants {
 	//hood  Constants 
 	public final static double kHoodUpEncoderMax = -10920; // 3900;
-	public final static double kHoodPositionTolerance = 50;
+	public final static double kHoodPositionTolerance = 20;
 	
 	// Shoot motor Constants
 	public final static double kShootMotorRPMTolerance = 200;//rpms
@@ -61,17 +61,23 @@ public class BallShooterConstants {
 		// }
 		{	   //target						Hood
 			//percentage			RPMs	Encoder
-			put( 0, new double[] { -3800, -9880 }); //green
-			put( 1500, new double[] { -3800, -7000 });
-			put( 400, new double[] { -3750, -10920 }); //green
-			put( 320, new double[] { -3800, -10400 }); //yellow
-			//put( 265, new double[] { -4200, -8750 }); 
-			put( 245, new double[] { -4200, -7000 }); 
-			put( 210, new double[] { -4000, -9412});
-			put( 140, new double[] { -4900, -9360});  //blue
-			put( 120, new double[] { -5000, -9620}); 
-			put( 80, new double[] { -5100, -9230}); //red
-			put( 70, new double[] { -5600, -9360}); 
+			// put( 0, new double[] { -3800, -9880 }); //green
+			// put( 1500, new double[] { -3800, -7000 });
+			// put( 400, new double[] { -3750, -10920 }); //green
+			// put( 320, new double[] { -3800, -10400 }); //yellow
+			// //put( 265, new double[] { -4200, -8750 }); 
+			// put( 245, new double[] { -4200, -7000 }); 
+			// put( 210, new double[] { -4000, -9412});
+			// put( 140, new double[] { -4900, -9360});  //blue
+			// put( 120, new double[] { -5000, -9620}); 
+			// put( 80, new double[] { -5100, -9230}); //red
+			// put( 70, new double[] { -5600, -9360}); 
+
+		put(0, new double[] { -3800, -9880});
+		put(280, new double[] { -3800, -7000});
+		put(60, new double[] { -5600, -5000});
+	
+
 
 	 }
 	};

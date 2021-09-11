@@ -10,6 +10,7 @@
 
 
 package frc.robot.commands;
+import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import frc.robot.subsystems.BallAcquisition;
 import frc.robot.subsystems.BallIndexer;
@@ -41,12 +42,14 @@ public class AutoRight extends SequentialCommandGroup {
         //          new command3(argsN, subsystem)
         //      )    
         //  );
-            new setShootModeOn(m_ballShooter),
-            new driveFeet(6.5, m_driveTrain),
-            new autoTurn(-30, m_driveTrain),
+        new ParallelCommandGroup(
+            //new setShootModeOn(m_ballShooter),
+            new driveFeet(6.5, 0, m_driveTrain).withTimeout(4)
+        ),
+            new autoTurn(-25, m_driveTrain),
             new turn2LimeLight(m_driveTrain),
-            new teleopAutoShootCMD(m_ballShooter),
-            new autoTurn(30, m_driveTrain)
+            //new teleopAutoShootCMD(m_ballShooter),
+            new autoTurn(25, m_driveTrain)
         );
     }
 
