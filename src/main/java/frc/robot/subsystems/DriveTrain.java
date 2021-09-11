@@ -168,7 +168,7 @@ tankDrive.setMaxOutput(1.0);
         // syntax
 
      //   twist = (twist < 0) ? -Math.pow(Deadband(twist), 2) : Math.pow(Deadband(twist), 2);
-     double max = .3;
+     double max = .7;
         if (RobotContainer.getInstance().getm_shifter().highGear == true){
             max = .7;
            /* leftMaster.configPeakOutputForward(max, Constants.kTimeoutMs);
