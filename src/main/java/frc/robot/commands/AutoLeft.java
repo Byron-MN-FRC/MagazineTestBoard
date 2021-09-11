@@ -44,7 +44,7 @@ public class AutoLeft extends SequentialCommandGroup {
 
             new zeroHood(m_ballShooter),
             new setShootModeOn(m_ballShooter),
-            new driveFeet(6.5, m_driveTrain),
+            new driveFeet(6.5, m_driveTrain).withTimeout(5),
             new autoTurn(30, m_driveTrain),
             new turn2LimeLight(m_driveTrain),
             new teleopAutoShootCMD(m_ballShooter),
