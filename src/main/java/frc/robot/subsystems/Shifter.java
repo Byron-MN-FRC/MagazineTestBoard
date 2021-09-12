@@ -54,7 +54,7 @@ shifter = new DoubleSolenoid(10, 0, 2);
     @Override
     public void simulationPeriodic() {
         // This method will be called once per scheduler run when in simulation
-        SmartDashboard.putString("drive/Gear", highGear ? "High Gear" : "Low Gear");
+    //    SmartDashboard.putString("drive/Gear", highGear ? "High Gear" : "Low Gear");
     }
 
     // Put methods for controlling this subsystem

@@ -113,29 +113,29 @@ tankDrive.setMaxOutput(1.0);
 
         if (Constants.kDebug_DT) {
             if (++limitDashboardUpdates % 10 == 0) {
-                SmartDashboard.putNumber(Constants.kAmpLimitName_DT, Constants.kAmpLimit_DT);
-                SmartDashboard.putNumber(Constants.kAmpPeakLimitName_DT, Constants.kAmpPeak_DT);
-                SmartDashboard.putNumber("test/drive/RMaster Amps", rightMaster.getSupplyCurrent());
-                SmartDashboard.putNumber("test/drive/RFollow Amps", rightFollower.getSupplyCurrent());
-                SmartDashboard.putNumber("test/drive/LMaster Amps", leftMaster.getSupplyCurrent());
-                SmartDashboard.putNumber("test/drive/LFollow Amps", leftFollower.getSupplyCurrent());
-                SmartDashboard.putNumber("test/drive/RMStator Stator", rightMaster.getStatorCurrent());
-                SmartDashboard.putNumber("test/drive/RFStator Stator", rightFollower.getStatorCurrent());
-                SmartDashboard.putNumber("test/drive/LMStator Stator", leftMaster.getStatorCurrent());
-                SmartDashboard.putNumber("test/drive/LFStator Stator", leftFollower.getStatorCurrent());
-                SmartDashboard.putNumber("drive/RMaster Temp", rightMaster.getTemperature());
-                SmartDashboard.putNumber("drive/RFollow Temp", rightFollower.getTemperature());
-                SmartDashboard.putNumber("drive/LMaster Temp", leftMaster.getTemperature());
-                SmartDashboard.putNumber("drive/LFollow Temp", leftFollower.getTemperature());
+                // SmartDashboard.putNumber(Constants.kAmpLimitName_DT, Constants.kAmpLimit_DT);
+                // SmartDashboard.putNumber(Constants.kAmpPeakLimitName_DT, Constants.kAmpPeak_DT);
+                // SmartDashboard.putNumber("test/drive/RMaster Amps", rightMaster.getSupplyCurrent());
+                // SmartDashboard.putNumber("test/drive/RFollow Amps", rightFollower.getSupplyCurrent());
+                // SmartDashboard.putNumber("test/drive/LMaster Amps", leftMaster.getSupplyCurrent());
+                // SmartDashboard.putNumber("test/drive/LFollow Amps", leftFollower.getSupplyCurrent());
+                // SmartDashboard.putNumber("test/drive/RMStator Stator", rightMaster.getStatorCurrent());
+                // SmartDashboard.putNumber("test/drive/RFStator Stator", rightFollower.getStatorCurrent());
+                // SmartDashboard.putNumber("test/drive/LMStator Stator", leftMaster.getStatorCurrent());
+                // SmartDashboard.putNumber("test/drive/LFStator Stator", leftFollower.getStatorCurrent());
+                // SmartDashboard.putNumber("drive/RMaster Temp", rightMaster.getTemperature());
+                // SmartDashboard.putNumber("drive/RFollow Temp", rightFollower.getTemperature());
+                // SmartDashboard.putNumber("drive/LMaster Temp", leftMaster.getTemperature());
+                // SmartDashboard.putNumber("drive/LFollow Temp", leftFollower.getTemperature());
 
-                SmartDashboard.putNumber("test/drive/Left encoder",
-                        leftMaster.getSensorCollection().getIntegratedSensorPosition());
-                SmartDashboard.putNumber("test/drive/Left velocity",
-                        leftMaster.getSensorCollection().getIntegratedSensorVelocity());
-                SmartDashboard.putNumber("test/drive/Right encoder",
-                        rightMaster.getSensorCollection().getIntegratedSensorPosition());
-                SmartDashboard.putNumber("test/drive/Right velocity",
-                        rightMaster.getSensorCollection().getIntegratedSensorVelocity());
+                // SmartDashboard.putNumber("test/drive/Left encoder",
+                //         leftMaster.getSensorCollection().getIntegratedSensorPosition());
+                // SmartDashboard.putNumber("test/drive/Left velocity",
+                //         leftMaster.getSensorCollection().getIntegratedSensorVelocity());
+                // SmartDashboard.putNumber("test/drive/Right encoder",
+                //         rightMaster.getSensorCollection().getIntegratedSensorPosition());
+                // SmartDashboard.putNumber("test/drive/Right velocity",
+                //         rightMaster.getSensorCollection().getIntegratedSensorVelocity());
             }
         }
         // if (timer >= 2000) {
@@ -373,7 +373,7 @@ tankDrive.setMaxOutput(1.0);
         rightMaster.getSensorCollection().setIntegratedSensorPosition(0, Constants.kTimeoutMs);
         pigeon.setYaw(0, Constants.kTimeoutMs);
         pigeon.setAccumZAngle(0, Constants.kTimeoutMs);
-        System.out.println("Integrated Encoders + Pigeon] All sensors are zeroed.\n");
+   //     System.out.println("Integrated Encoders + Pigeon] All sensors are zeroed.\n");
     }
 
     void setRobotDistanceConfigs(TalonFXInvertType masterInvertType, TalonFXConfiguration masterConfig) {
@@ -444,7 +444,7 @@ tankDrive.setMaxOutput(1.0);
             twist = 0;
             y = 0;
         }
-        System.out.println(y);
+     //   System.out.println(y);
         tankDrive.arcadeDrive(y, twist);
     }
 
@@ -465,14 +465,14 @@ tankDrive.setMaxOutput(1.0);
     public void driveToEncoderUnits(double target_sensorUnits) {
         // double target_turn = rightMaster.getSensorCollection.get(1); // no turn
         double target_turn = 0;
-        System.out.println("***********");
+     //   System.out.println("***********");
         double angleInput = SmartDashboard.getNumber("TargetAngle", 0);
         if (angleInput != 0) {
             target_turn = angleInput;
         } // Angle specified on screen
 
-        System.out.println("Target sensor units:" + target_sensorUnits);
-        System.out.println("Target turn:" + target_turn);
+     //   System.out.println("Target sensor units:" + target_sensorUnits);
+     //   System.out.println("Target turn:" + target_turn);
 
         /*
          * Configured for MotionMagic on Integrated Encoders' Sum and Auxiliary PID on
@@ -497,7 +497,7 @@ tankDrive.setMaxOutput(1.0);
         double remainingRight = Math.abs(rightCurrentEncoderUnits - encoderUnits);
         // if ((remainingRight < 1000) && (remainingLeft < 1000)) {
         if (remainingRight < 1000) {
-            System.out.println("true");
+     //       System.out.println("true");
             return true;
         }
         return false;

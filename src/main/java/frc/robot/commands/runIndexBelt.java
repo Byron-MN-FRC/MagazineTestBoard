@@ -62,7 +62,7 @@ public class runIndexBelt extends CommandBase {
     @Override
     public void end(boolean interrupted) {
         m_ballIndexer.stopIndexMotor();
-        System.out.println("Stopping belt motor");
+     //   System.out.println("Stopping belt motor");
         m_ballIndexer.setAutoIndex(true);
     }
 

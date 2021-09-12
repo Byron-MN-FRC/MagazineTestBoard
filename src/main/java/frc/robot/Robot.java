@@ -54,10 +54,10 @@ public class Robot extends TimedRobot {
         //SmartDashboard.putData("drive/Auto mode", chooser);
         LimelightUtility.EnableDriverCamera(true);
         LimelightUtility.StreamingMode(LimelightUtility.StreamMode.Standard);
-        SmartDashboard.putString(Constants.autoPosition, "L");
+    //    SmartDashboard.putString(Constants.autoPosition, "L");
         LimelightUtility.WriteDouble("ledMode", 1); // 3 = Limelight O
         //m_robotContainer.m_ballShooter.zeroOutHood();
-        SmartDashboard.putBoolean("HoodUp", false);
+     //   SmartDashboard.putBoolean("HoodUp", false);
     }
 
     /**
@@ -84,7 +84,7 @@ public class Robot extends TimedRobot {
     public void disabledInit() {
         RobotContainer.getInstance().m_ballShooter.teleopWithIdle = false;
         RobotContainer.getInstance().m_ballIndexer.reinizilizeIndexer();
-        //RobotContainer.getInstance().m_ballIndexer.beltMotorConfig(); 
+        RobotContainer.getInstance().m_ballIndexer.beltMotorConfig(); 
         RobotContainer.getInstance().m_ballShooter.hoodMotorConfig();
         RobotContainer.getInstance().m_ballShooter.shootMotorConfig();
         
@@ -162,8 +162,8 @@ public class Robot extends TimedRobot {
         // ballShooter.inAuton = false;
         // Scheduler.getInstance().run();
         LimelightUtility.RefreshTrackingData();
-        SmartDashboard.putBoolean("drive/LimeLight Target", LimelightUtility.ValidTargetFound());
-        SmartDashboard.putNumber("drive/Game Timer", Timer.getMatchTime());
+      //  SmartDashboard.putBoolean("drive/LimeLight Target", LimelightUtility.ValidTargetFound());
+      //  SmartDashboard.putNumber("drive/Game Timer", Timer.getMatchTime());
     }
     public void initializeSubsystems() {
         RobotContainer.getInstance().m_driveTrain.motorConfig();

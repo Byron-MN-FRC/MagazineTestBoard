@@ -85,9 +85,9 @@ gateSensor = new DigitalInput(7);
     @Override
     public void periodic() {
         // This method will be called once per scheduler run
-		SmartDashboard.putBoolean("Gate Sensor", gateSensor());
-		SmartDashboard.putBoolean("Top Sensor", topSensor());
-		SmartDashboard.putBoolean("Bottom Sensor", bottomSensor());
+	//	SmartDashboard.putBoolean("Gate Sensor", gateSensor());
+	//	SmartDashboard.putBoolean("Top Sensor", topSensor());
+	//	SmartDashboard.putBoolean("Bottom Sensor", bottomSensor());
 	
 		boolean gLoad = !topSensor() && ((gateSensor()) || (!bottomSensor() && gateLoadInProgress));
 		boolean mLoad = !topSensor() && bottomSensor();

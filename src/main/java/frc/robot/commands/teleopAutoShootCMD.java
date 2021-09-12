@@ -63,7 +63,7 @@ public class teleopAutoShootCMD extends CommandBase {
         if (LimelightUtility.ValidTargetFound()) {
             area = LimelightUtility.TargetAreaPercentage * 100; 
         } else {
-            System.out.println("No target");
+   //         System.out.println("No target");
             area = 50;
         }  
         rpms = BallShooterConstants.targetPercent2ShooterParms.floorEntry((int)area).getValue()[0];
@@ -78,8 +78,8 @@ public class teleopAutoShootCMD extends CommandBase {
         //setTimeout(BallShooterConstants.teleopAutoShootCmdTimeout);
         RobotContainer.getInstance().m_ballIndexer.setAutoIndex(false);
         indexBeltRunner = new runIndexBelt(BallIndexerConstants.indexMotorSpeed, RobotContainer.getInstance().m_ballIndexer);
-        SmartDashboard.putNumber("Shooter/HoodTarget", hoodEncoderUnits);
-        SmartDashboard.putNumber("Shooter/ShootTarget", rpms);
+        // SmartDashboard.putNumber("Shooter/HoodTarget", hoodEncoderUnits);
+        // SmartDashboard.putNumber("Shooter/ShootTarget", rpms);
     }
 
     // Called every time the scheduler runs while the command is scheduled.
@@ -96,7 +96,7 @@ public class teleopAutoShootCMD extends CommandBase {
             }*/
         } else {
             if (!indexBeltRunner.isFinished()) {
-                System.out.println("teleopAutoShootCMD is Cancelling belt motor");
+    //            System.out.println("teleopAutoShootCMD is Cancelling belt motor");
                 
                 indexBeltRunner.cancel();   
             }
@@ -112,13 +112,13 @@ public class teleopAutoShootCMD extends CommandBase {
             }
             RobotContainer.getInstance().m_ballIndexer.setAutoIndex(true);
         
-            SmartDashboard.putNumber("Shooter/HoodTarget", 0);
-            SmartDashboard.putNumber("Shooter/ShootTarget", 0);
-            SmartDashboard.putNumber("Shooter/ShootMotorError", 0);
-            SmartDashboard.putBoolean("Shooter/ShootMotorReady",false);
-            SmartDashboard.putNumber("Shooter/HoodError", 0);
-            SmartDashboard.putBoolean("Shooter/HoodReady", false);
-            SmartDashboard.putBoolean("Shooter/ReadyToShoot", false);
+            // SmartDashboard.putNumber("Shooter/HoodTarget", 0);
+            // SmartDashboard.putNumber("Shooter/ShootTarget", 0);
+            // SmartDashboard.putNumber("Shooter/ShootMotorError", 0);
+            // SmartDashboard.putBoolean("Shooter/ShootMotorReady",false);
+            // SmartDashboard.putNumber("Shooter/HoodError", 0);
+            // SmartDashboard.putBoolean("Shooter/HoodReady", false);
+            // SmartDashboard.putBoolean("Shooter/ReadyToShoot", false);
 
      
         }

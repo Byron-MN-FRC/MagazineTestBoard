@@ -45,8 +45,8 @@ public class AutoLeft extends SequentialCommandGroup {
         //      )    
         //  );
         new zeroHood(m_ballShooter),
+        new setShootModeOn(m_ballShooter),
         new ParallelCommandGroup(
-            new setShootModeOn(m_ballShooter),
             new driveFeet(6.5, 0, m_driveTrain).withTimeout(3.5)
         ),
         
