@@ -7,10 +7,10 @@ import java.util.TreeMap;
 public class BallShooterConstants {
 	//hood  Constants 
 	public final static double kHoodUpEncoderMax = -10920; // 3900;
-	public final static double kHoodPositionTolerance = 20;
+	public final static double kHoodPositionTolerance = 30;
 	
 	// Shoot motor Constants
-	public final static double kShootMotorRPMTolerance = 200;//rpms
+	public final static double kShootMotorRPMTolerance = 100;//rpms
 	public static final boolean kEnableCurrentLimiting_BS = true;
 
 	// Current (amp) limit
@@ -75,7 +75,9 @@ public class BallShooterConstants {
 
 		put(0, new double[] { -3800, -9880});
 		put(280, new double[] { -3800, -7000});
-		put(60, new double[] { -5600, -5000});
+		put(100, new double[] { -4600, -4500});
+		put(60, new double[] { -3800, -5800});
+		
 	
 
 
@@ -113,14 +115,14 @@ public class BallShooterConstants {
 	 * the control panel when we are not shooting.  
 	 */
 	public static final double hoodIdlePosition = 0;
-	public static final double hoodShootPosition = -7000 ; //-3450;
+	public static final double hoodShootPosition = -5000 ; //-3450;
 
 	/**
 	 * Velocity in RPMs that the robot should idle at when not using the shooter.  This is for 
 	 * conservation of energy and time so that we don't need to spin up each time we try to shoot.
 	 */
 	public static final double shootIdleVelocity = 0;
-	public static final double shootDefaultVelocity = -4900;
+	public static final double shootDefaultVelocity = -3500;
 	public static final double shootClimbVelocity = 0;
 
 	}

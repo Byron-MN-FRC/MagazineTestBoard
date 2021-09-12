@@ -44,15 +44,15 @@ public class AutoLeft extends SequentialCommandGroup {
         //          new command3(argsN, subsystem)
         //      )    
         //  );
+        new zeroHood(m_ballShooter),
         new ParallelCommandGroup(
-            new zeroHood(m_ballShooter)
-            //new setShootModeOn(m_ballShooter),
-            
+            new setShootModeOn(m_ballShooter),
+            new driveFeet(6.5, 0, m_driveTrain).withTimeout(3.5)
         ),
-        new driveFeet(6.5, 0, m_driveTrain).withTimeout(3.5),
+        
         new autoTurn(25, m_driveTrain),
         new turn2LimeLight(m_driveTrain),
-        //new teleopAutoShootCMD(m_ballShooter),
+        new teleopAutoShootCMD(m_ballShooter),
         new autoTurn(-25, m_driveTrain),
         new extendSolenoid(m_ballAcquisition).withTimeout(3),
         new ParallelRaceGroup(
