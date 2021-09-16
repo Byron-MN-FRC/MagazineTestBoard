@@ -153,7 +153,7 @@ btnRunAcquireMotor.whileHeld(new startAcquireMotor( m_ballAcquisition ) ,true);
 //    SmartDashboard.putData("btnRunAcquireMotor",new startAcquireMotor( m_ballAcquisition ) );
 
 final JoystickButton btnExtendSolenoid = new JoystickButton(testJoystick, 5);        
-btnExtendSolenoid.whenPressed(new extendSolenoid( m_ballAcquisition ).withTimeout(0.5) ,true);
+btnExtendSolenoid.whenPressed(new extendSolenoid( m_ballAcquisition ).withTimeout(5) ,true);
 //    SmartDashboard.putData("btnExtendSolenoid",new extendSolenoid( m_ballAcquisition ).withTimeout(0.5) );
 
 final JoystickButton btnReverseAquireMotor = new JoystickButton(testJoystick, 4);        

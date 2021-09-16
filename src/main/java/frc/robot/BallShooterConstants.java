@@ -75,6 +75,7 @@ public class BallShooterConstants {
 
 		put(0, new double[] { -3800, -9880});
 		put(280, new double[] { -3800, -7000});
+		put(150, new double[] { -4600, -4500});
 		put(100, new double[] { -4600, -4000});
 		put(60, new double[] { -5500, -4000});
 		
