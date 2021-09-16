@@ -532,10 +532,10 @@ tankDrive.setMaxOutput(1.0);
         leftMaster.configPeakOutputReverse(-max, Constants.kTimeoutMs);
         rightMaster.configPeakOutputForward(max, Constants.kTimeoutMs);
         rightMaster.configPeakOutputReverse(-max, Constants.kTimeoutMs);
-        leftMaster.configOpenloopRamp(1,Constants.kTimeoutMs);
-        rightMaster.configOpenloopRamp(1,Constants.kTimeoutMs);
-    //    leftMaster.configOpenloopRamp(1.5,Constants.kTimeoutMs);
-    //    leftMaster.configOpenloopRamp(1.5,Constants.kTimeoutMs);
+       // leftMaster.configOpenloopRamp(1,Constants.kTimeoutMs);
+      //  rightMaster.configOpenloopRamp(1,Constants.kTimeoutMs);
+        leftMaster.configOpenloopRamp(1.0 ,Constants.kTimeoutMs);
+        rightMaster.configOpenloopRamp(1.0 ,Constants.kTimeoutMs);
     }
 
     public TalonFXConfiguration getRightMotor() {
