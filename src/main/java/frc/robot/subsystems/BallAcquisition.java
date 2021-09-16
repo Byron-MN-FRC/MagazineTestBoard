@@ -46,11 +46,11 @@ acquireMotor = new WPI_TalonSRX(5);
  
  
 
-leftSolenoid = new DoubleSolenoid(10, 4, 5);
+ leftSolenoid = new DoubleSolenoid(10, 4, 5);
  addChild("leftSolenoid",leftSolenoid);
  
 
-rightSolenoid = new DoubleSolenoid(10, 6, 7);
+ rightSolenoid = new DoubleSolenoid(10, 6, 7);
  addChild("rightSolenoid",rightSolenoid);
  
 

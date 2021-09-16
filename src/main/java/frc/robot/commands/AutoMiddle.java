@@ -42,12 +42,14 @@ public class AutoMiddle extends SequentialCommandGroup {
         //          new command3(argsN, subsystem)
         //      )    
         //  );
-        new driveFeet(2, 0, m_driveTrain),
+        new zeroHood(m_ballShooter),
         new ParallelCommandGroup(
-            new zeroHood(m_ballShooter),
-            new turn2LimeLight(m_driveTrain)
+            new driveFeet(2, 0, m_driveTrain),
+            new setShootModeOn(m_ballShooter)
         ),
-        new teleopAutoShootCMD(m_ballShooter)
+        new turn2LimeLight(m_driveTrain),
+        new autonimousShoot(m_ballShooter)
+        //new teleopAutoShootCMD(m_ballShooter)
  //       new autoTurn(100, m_driveTrain),
          );
     }

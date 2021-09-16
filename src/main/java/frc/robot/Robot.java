@@ -104,6 +104,7 @@ public class Robot extends TimedRobot {
         // initializeSubsystems();
         // Robot.driveTrain.autonomousLimiting();        
         m_autonomousCommand = m_robotContainer.getAutonomousCommand();
+        initializeSubsystems();
 
         // schedule the autonomous command (example)
         if (m_autonomousCommand != null) {
