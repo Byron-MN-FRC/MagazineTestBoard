@@ -49,6 +49,8 @@ private DigitalInput gateSensor;
 	private boolean gateLoadInProgress = false; 
 	private boolean autoIndex = true;
 	private int indexedBallCount = 0;
+	private boolean waitTopTrip = false;
+	private boolean waitTopClear = true;
 	//public boolean shooterActive = false;
 	
     /**
@@ -113,7 +115,8 @@ gateSensor = new DigitalInput(7);
 				stopLeftBeltMotor();
 				stopRightBeltMotor();
 			}
-		}
+		} 
+		
 	}
 
     @Override
@@ -156,6 +159,11 @@ gateSensor = new DigitalInput(7);
 	public int incrementPwrCellCount() {
 		return ++indexedBallCount;
 	}
+
+	public int decrementPwrCellCount() {
+		return --indexedBallCount;
+	}
+
 
 	public int ballCount() {
 		return indexedBallCount;

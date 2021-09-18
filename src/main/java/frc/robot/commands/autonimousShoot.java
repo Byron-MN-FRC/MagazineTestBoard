@@ -80,7 +80,7 @@ public class autonimousShoot extends CommandBase {
         if (RobotContainer.getInstance().m_ballShooter.ready2Shoot(rpms, hoodEncoderUnits)) {
             if (!indexBeltRunner.isScheduled()) {
                 //System.out.println("Running belt motor");
-                RobotContainer.getInstance().m_ballIndexer.startIndexBelt(1);
+                RobotContainer.getInstance().m_ballIndexer.startIndexBelt(.55);
             
             }
         } else {

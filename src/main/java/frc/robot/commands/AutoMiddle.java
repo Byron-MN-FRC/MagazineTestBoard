@@ -48,7 +48,7 @@ public class AutoMiddle extends SequentialCommandGroup {
             new setShootModeOn(m_ballShooter)
         ),
         new turn2LimeLight(m_driveTrain),
-        new autonimousShoot(m_ballShooter)
+        new teleopAutoShootCMD(m_ballShooter).withTimeout(9)
         //new teleopAutoShootCMD(m_ballShooter)
  //       new autoTurn(100, m_driveTrain),
          );
