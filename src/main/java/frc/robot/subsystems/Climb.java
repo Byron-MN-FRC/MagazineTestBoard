@@ -14,6 +14,7 @@ package frc.robot.subsystems;
 
 import frc.robot.RobotContainer;
 import frc.robot.commands.*;
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
@@ -73,9 +74,9 @@ climbMotor = new WPI_TalonSRX(6);
         climbMotor.set(-.5);
     }
 
-    public void clambering() {
+    public void climbWithPov(Joystick joystickP0) {
 
-    double POV = RobotContainer.getInstance().getTestJoystick().getPOV();
+    double POV = joystickP0.getPOV();
     
     if (POV == 0){
         ClimbUp();
