@@ -166,20 +166,20 @@ tankDrive.setMaxOutput(1.0);
         // syntax
 
      //   twist = (twist < 0) ? -Math.pow(Deadband(twist), 2) : Math.pow(Deadband(twist), 2);
-     double max = .7;
-        if (RobotContainer.getInstance().getm_shifter().highGear == true){
-            max = .7;
-           /* leftMaster.configPeakOutputForward(max, Constants.kTimeoutMs);
-            leftMaster.configPeakOutputReverse(-max, Constants.kTimeoutMs);
-            rightMaster.configPeakOutputForward(max, Constants.kTimeoutMs);
-            rightMaster.configPeakOutputReverse(-max, Constants.kTimeoutMs);
-            tankDrive.arcadeDrive(y, twist);*/
-        }
+    //  double max = .7;
+        // if (RobotContainer.getInstance().getm_shifter().highGear == true){
+        //     max = .7;
+        //    /* leftMaster.configPeakOutputForward(max, Constants.kTimeoutMs);
+        //     leftMaster.configPeakOutputReverse(-max, Constants.kTimeoutMs);
+        //     rightMaster.configPeakOutputForward(max, Constants.kTimeoutMs);
+        //     rightMaster.configPeakOutputReverse(-max, Constants.kTimeoutMs);
+        //     tankDrive.arcadeDrive(y, twist);*/
+        // }
 
-        leftMaster.configPeakOutputForward(max, Constants.kTimeoutMs);
-        leftMaster.configPeakOutputReverse(-max, Constants.kTimeoutMs);
-        rightMaster.configPeakOutputForward(max, Constants.kTimeoutMs);
-        rightMaster.configPeakOutputReverse(-max, Constants.kTimeoutMs);
+        // leftMaster.configPeakOutputForward(max, Constants.kTimeoutMs);
+        // leftMaster.configPeakOutputReverse(-max, Constants.kTimeoutMs);
+        // rightMaster.configPeakOutputForward(max, Constants.kTimeoutMs);
+        // rightMaster.configPeakOutputReverse(-max, Constants.kTimeoutMs);
         if (RobotContainer.getInstance().getm_shifter().highGear) {
             tankDrive.arcadeDrive(y,  (twist*.80)); 
         }
@@ -527,7 +527,7 @@ tankDrive.setMaxOutput(1.0);
     }
 
     public void teleopLimiting() {
-        double max = 1.0;
+        double max = .70;
         leftMaster.configPeakOutputForward(max, Constants.kTimeoutMs);
         leftMaster.configPeakOutputReverse(-max, Constants.kTimeoutMs);
         rightMaster.configPeakOutputForward(max, Constants.kTimeoutMs);
