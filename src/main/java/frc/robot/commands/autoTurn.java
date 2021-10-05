@@ -50,7 +50,7 @@ private boolean ranOnce = false;
     // Called when the command is initially scheduled.
     @Override
     public void initialize() {
-        m_driveTrain.motorConfigFalcon();
+        m_driveTrain.motorConfigFalcon(); //potional remove
         m_driveTrain.zeroSensors();
     }
 
@@ -67,7 +67,7 @@ private boolean ranOnce = false;
     @Override
     public void end(boolean interrupted) {
         m_driveTrain.stop();
-        m_driveTrain.motorConfigFalcon();
+        m_driveTrain.motorConfigFalcon(); //potional remove
     }
 
     // Returns true when the command should end.

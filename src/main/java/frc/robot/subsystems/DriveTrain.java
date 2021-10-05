@@ -217,6 +217,8 @@ tankDrive.setMaxOutput(1.0);
     }
 
     public void stop() {
+        leftMaster.set(ControlMode.Disabled, 0);
+        rightMaster.set(ControlMode.Disabled, 0);
         rightMaster.set(0);
         leftMaster.set(0);
     }
