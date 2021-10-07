@@ -77,21 +77,21 @@ limitSwitchDown = new DigitalInput(0);
     @Override
     public void periodic() {
         // This method will be called once per scheduler run
-        double motorOutput = shootMotor.getMotorOutputPercent();
-        if (BallShooterConstants.test) {
+        // double motorOutput = shootMotor.getMotorOutputPercent();
+        // if (BallShooterConstants.test) {
         //     SmartDashboard.putNumber("test/shooter/Motor Output", motorOutput);
         //     SmartDashboard.putNumber("test/shooter/Motor Velocity", shootMotor.getSelectedSensorVelocity(0));
         //     SmartDashboard.putNumber("test/shooter/Motor Error", shootMotor.getClosedLoopError(0));
         //     SmartDashboard.putNumber("test/shooter/Hood Position", hoodMotor.getSelectedSensorPosition(0));
         //     SmartDashboard.putNumber("test/shooter/Hood Error", hoodMotor.getClosedLoopError(0));
         //     SmartDashboard.putBoolean("HoodLimitSwitch", isLimitSwitchDown());
-        }
+        //}
 
-        double err = hoodMotor.getClosedLoopError(BallShooterConstants.kPIDLoopIdx);
+        //double err = hoodMotor.getClosedLoopError(BallShooterConstants.kPIDLoopIdx);
     //    SmartDashboard.putNumber("Shooter/HoodError", err);
     //    SmartDashboard.putBoolean("Shooter/HoodReady", Math.abs(err) < BallShooterConstants.kHoodPositionTolerance);
 
-        double closedLpErr = Math.abs(shootMotor.getClosedLoopError(BallShooterConstants.kPIDLoopIdx));
+        //double closedLpErr = Math.abs(shootMotor.getClosedLoopError(BallShooterConstants.kPIDLoopIdx));
      //   SmartDashboard.putNumber("Shooter/ShootMotorError", closedLpErr);
      //   SmartDashboard.putBoolean("Shooter/ShootMotorReady",_withinThresholdLoops > BallShooterConstants.kLoopsToSettle);
 

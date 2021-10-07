@@ -50,8 +50,8 @@ public class AutoLeft extends SequentialCommandGroup {
             new driveFeet(6.5, 0, m_driveTrain).withTimeout(3.5)
         ),
         
-        new autoTurn(25, m_driveTrain),
-        new turn2LimeLight(m_driveTrain),
+        new autoTurn(25, m_driveTrain).withTimeout(2),
+      //  new turn2LimeLight(m_driveTrain),
        // new autonimousShoot(m_ballShooter),
         new teleopAutoShootCMD(m_ballShooter).withTimeout(9),
         new autoTurn(-25, m_driveTrain).withTimeout(2),

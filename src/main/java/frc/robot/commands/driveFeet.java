@@ -69,7 +69,7 @@ public class driveFeet extends CommandBase {
     @Override
     public void end(boolean interrupted) {
         m_driveTrain.stop();
-        // m_driveTrain.motorConfigFalcon();
+        //m_driveTrain.motorConfigFalcon();
         
         m_driveTrain.getRightMotor().motionAcceleration = 500; // (distance units per 100 ms) per second
         m_driveTrain.getRightMotor().motionCruiseVelocity = 2000; // distance units per 100 ms

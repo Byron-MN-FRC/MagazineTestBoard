@@ -200,7 +200,7 @@ tankDrive.setMaxOutput(1.0);
     }
 
     public void closedLoopTurn(double angle) {
-        zeroSensors();
+        //zeroSensors();
         rightMaster.set(ControlMode.MotionMagic, 0, DemandType.AuxPID, angle * 10);
         leftMaster.follow(rightMaster, FollowerType.AuxOutput1);
         // rightFollower.follow(rightMaster);
