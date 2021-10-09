@@ -63,15 +63,15 @@ climbMotor = new WPI_TalonSRX(6);
     }
 
     public void ClimbUp(){
-        climbMotor.set(.5);
+        climbMotor.set(.8);
     }
 
     public void ClimbStop(){
-        climbMotor.set(0);
+        climbMotor.stopMotor();
     }
 
     public void ClimbDown(){
-        climbMotor.set(-.5);
+        climbMotor.set(-.8);
     }
 
     public void climbWithPov(Joystick joystickP0) {
