@@ -10,7 +10,7 @@ public class BallShooterConstants {
 	public final static double kHoodPositionTolerance = 50;
 	
 	// Shoot motor Constants
-	public final static double kShootMotorRPMTolerance = 150;//rpms
+	public final static double kShootMotorRPMTolerance = 2000;//sensor units
 	public static final boolean kEnableCurrentLimiting_BS = true;
 
 	// Current (amp) limit
@@ -35,10 +35,12 @@ public class BallShooterConstants {
 	 * Gains(kp, ki, kd, kf, izone, peak output);
 	 */
 //	public static final Gains kGains_hoodMotor = new  Gains(0.7, 0.00001, 0.0, .14, 0, 0);
-	public static final Gains kGains_hoodMotor = new  Gains(0.9, 0.00005, 0.0, .99, 0, 0);
+	public static final Gains kGains_hoodMotor = new  Gains(0.9, 0.0002, 0.0, .99, 0, 0);
+	// 10/9/21 public static final Gains kGains_hoodMotor = new  Gains(0.9, 0.00005, 0.0, .99, 0, 0);
 	//public static final Gains kGains_shootMotor = new Gains(0.149600029, 0.00001, 1.4956, 0.04760003, 500, 1.0);
 	// 9/16/21 public static final Gains kGains_shootMotor =   new Gains(0.149600029, 0.000015, 0, 0.049, 0, 0);
-	public static final Gains kGains_shootMotor =   new Gains(0.1, 0.0005, 0, 0.062, 0, 0);
+	// 10/9/21 public static final Gains kGains_shootMotor =   new Gains(0.1, 0.0005, 0, 0.062, 0, 0);
+	public static final Gains kGains_shootMotor =   new Gains(0.065, 0.00001, 0, 0.048, 0, 0);
 
 
 	/**

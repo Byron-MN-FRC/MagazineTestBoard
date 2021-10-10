@@ -51,18 +51,18 @@ public class driveFeet extends CommandBase {
     // Called when the command is initially scheduled.
     @Override
     public void initialize() {
-        m_driveTrain.motorConfigFalcon(); //potional remove
+    //    m_driveTrain.motorConfigFalcon(); //potional remove
         m_driveTrain.zeroSensors();
     }
 
     // Called every time the scheduler runs while the command is scheduled.
     @Override
     public void execute() {
-        if (!ranOnce) {
-            ranOnce = true;
+   //     if (!ranOnce) {
+    //        ranOnce = true;
             double m_encoderUnits = Constants.encodeUnitsToFeet * m_distanceInFeet;
             m_driveTrain.driveToEncoderUnits(m_encoderUnits);
-        }
+    //    }
     }
 
     // Called once the command ends or is interrupted.
@@ -71,8 +71,8 @@ public class driveFeet extends CommandBase {
         m_driveTrain.stop();
         //m_driveTrain.motorConfigFalcon();
         
-        m_driveTrain.getRightMotor().motionAcceleration = 500; // (distance units per 100 ms) per second
-        m_driveTrain.getRightMotor().motionCruiseVelocity = 2000; // distance units per 100 ms
+ //       m_driveTrain.getRightMotor().motionAcceleration = 500; // (distance units per 100 ms) per second
+ //       m_driveTrain.getRightMotor().motionCruiseVelocity = 2000; // distance units per 100 ms
     }
 
     // Returns true when the command should end.

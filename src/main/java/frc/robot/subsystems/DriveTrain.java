@@ -212,8 +212,9 @@ tankDrive.setMaxOutput(1.0);
         pigeon.getYawPitchRoll(ypr);
 
         if (Constants.kDebug_DT)
-            SmartDashboard.putNumber("test/shifter/Turn Distance Remaining", Math.abs(ypr[0] - target));
-        return Math.abs(ypr[0] - target) < (360 * .005);
+            System.out.println("test/shifter/Turn Distance Remaining" + Math.abs(ypr[0] - target));
+            return Math.abs(ypr[0] - target) < (360 * .005);
+      //      return Math.abs(ypr[0] - target) < (360 * .01);
     }
 
     public void stop() {

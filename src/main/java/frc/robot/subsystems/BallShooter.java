@@ -161,7 +161,7 @@ limitSwitchDown = new DigitalInput(0);
         masterShootRPM = rpms;
 
         boolean iwthresh = isWithinThreshold();
-        boolean hp = hoodAtPosition();
+        boolean hp = hoodAtPosition(hoodEncoderUnits);
         // report debugging information
         if (++loop >= 15) {
             toConsoleln("ShootTarget=" + rpmToVelocityPer100ms(rpms) + " Cur="
@@ -170,7 +170,8 @@ limitSwitchDown = new DigitalInput(0);
                     + shootMotor.getSelectedSensorVelocity(BallShooterConstants.kPIDLoopIdx)*10*60/2048);
             toConsoleln("hoodTarget=" + hoodEncoderUnits + " Cur="
                     + hoodMotor.getSelectedSensorPosition(BallShooterConstants.kPIDLoopIdx) + " Err="
-                    + hoodMotor.getClosedLoopError(BallShooterConstants.kPIDLoopIdx) + " hood at position=" + hp);
+                    + Math.abs(hoodEncoderUnits - hoodMotor.getSelectedSensorPosition(BallShooterConstants.kPIDLoopIdx)));
+                  //  ).getClosedLoopError(BallShooterConstants.kPIDLoopIdx) + " hood at position=" + hp);
             toConsoleln("Returning " + (iwthresh && hp));
         }
 
@@ -325,8 +326,8 @@ limitSwitchDown = new DigitalInput(0);
         hoodMotor.config_kD(BallShooterConstants.kSlotIdx, BallShooterConstants.kGains_hoodMotor.kD,
                 BallShooterConstants.kTimeoutMs);
         /* Set acceleration and cruise velocity - see documentation */
-        hoodMotor.configMotionCruiseVelocity(300, BallShooterConstants.kTimeoutMs);
-        hoodMotor.configMotionAcceleration(150, BallShooterConstants.kTimeoutMs);
+        hoodMotor.configMotionCruiseVelocity(1000, BallShooterConstants.kTimeoutMs);
+        hoodMotor.configMotionAcceleration(500, BallShooterConstants.kTimeoutMs);
 
         /* Zero the sensor */
         hoodMotor.setSelectedSensorPosition(0, BallShooterConstants.kPIDLoopIdx, BallShooterConstants.kTimeoutMs);
@@ -414,8 +415,9 @@ limitSwitchDown = new DigitalInput(0);
         return (_withinThresholdLoops > BallShooterConstants.kLoopsToSettle);
     }
 
-    public boolean hoodAtPosition() {
-        final double err = hoodMotor.getClosedLoopError(BallShooterConstants.kPIDLoopIdx);
+    public boolean hoodAtPosition(double target) {
+     //   final double err = hoodMotor.getClosedLoopError(BallShooterConstants.kPIDLoopIdx);
+        double err = target -  hoodMotor.getSelectedSensorPosition(BallShooterConstants.kPIDLoopIdx) ; 
         
         return Math.abs(err) < BallShooterConstants.kHoodPositionTolerance;
     }
