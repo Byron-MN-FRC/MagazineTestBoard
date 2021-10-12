@@ -102,7 +102,7 @@ public class Robot extends TimedRobot {
     @Override
     public void autonomousInit() {
         // initializeSubsystems();
-        // Robot.driveTrain.autonomousLimiting();        
+        RobotContainer.getInstance().m_driveTrain.autonomousLimiting();        
         m_autonomousCommand = m_robotContainer.getAutonomousCommand();
         initializeSubsystems();
 
@@ -171,7 +171,7 @@ public class Robot extends TimedRobot {
         RobotContainer.getInstance().m_driveTrain.zeroSensors();
         RobotContainer.getInstance().m_ballIndexer.reinizilizeIndexer();
         //Robot.ballIndexer.resetCount();
-        RobotContainer.getInstance().m_driveTrain.reinitializeDriveTrain();
+        //RobotContainer.getInstance().m_driveTrain.reinitializeDriveTrain();
         RobotContainer.getInstance().m_ballShooter.reinitializeShooter();
         RobotContainer.getInstance().m_shifter.reinitializeShifter();
         //RobotContainer.getInstance().m_ballAcquisition.reinitlizeAquisition();
