@@ -116,6 +116,17 @@ gateSensor = new DigitalInput(7);
 				stopRightBeltMotor();
 			}
 		} 
+		if (indexedBallCount > 0) {
+			if (waitTopClear == true && !topSensor()) {
+					decrementPwrCellCount();
+					waitTopClear = false;
+					waitTopTrip = true;
+			}
+			if (waitTopTrip == true && topSensor()){
+				waitTopClear = true;
+				waitTopTrip = false;
+			}
+		}
 		
 	}
 
