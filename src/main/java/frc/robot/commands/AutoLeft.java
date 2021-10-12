@@ -52,11 +52,11 @@ public class AutoLeft extends SequentialCommandGroup {
         
 
         new autoTurn(25, m_driveTrain).withTimeout(2),
-      //  new turn2LimeLight(m_driveTrain),
-        new autonimousShoot(m_ballShooter),
-        //new teleopAutoShootCMD(m_ballShooter).withTimeout(9),
+        new turn2LimeLight(m_driveTrain),
+        //new autonimousShoot(m_ballShooter),
+        new teleopAutoShootCMD(m_ballShooter).withTimeout(4),
         new autoTurn(-25, m_driveTrain).withTimeout(2),
-        new extendSolenoid(m_ballAcquisition).withTimeout(5),
+        new extendSolenoid(m_ballAcquisition).withTimeout(1),
 
         new ParallelRaceGroup(
             new startAcquireMotor(m_ballAcquisition),
