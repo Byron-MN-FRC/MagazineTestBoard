@@ -77,14 +77,11 @@ public class BallShooterConstants {
 			// put( 70, new double[] { -5600, -9360}); 
 
 		put(0, new double[] { -3800, -7000});
-		put(450, new double[] { -3800, -5500});
-		put(280, new double[] { -3800, -7000});
+		put(450, new double[] { -4000, -5500});
+		put(250, new double[] { -4250, -5000});
 		put(150, new double[] { -4600, -4250});
-		put(100, new double[] { -5200, -4000});
-		put(60, new double[] { -5500, -4200});
-		
-	
-
+		put(100, new double[] { -5500, -4300});
+		put(60, new double[] { -5980, -4200});
 
 	 }
 	};
