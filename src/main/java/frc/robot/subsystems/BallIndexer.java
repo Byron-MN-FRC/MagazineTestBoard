@@ -99,14 +99,6 @@ gateSensor = new DigitalInput(7);
 		//	boolean gLoad = !topSensor() && ((gateSensor()) || (!bottomSensor() && gateLoadInProgress));
 		boolean mLoad = !topSensor() && bottomSensor();
 		if (autoIndex) {
-			if (gLoad) {
-				startGateMotor();
-				gateLoadInProgress = true;
-			}
-			else {
-				stopGateMotor();
-		//		gateLoadInProgress = false;
-			}
 			if (mLoad) {
 				startLeftBeltMotor(BallIndexerConstants.indexMotorSpeed);
 				startRightBeltMotor(BallIndexerConstants.indexMotorSpeed);
@@ -115,18 +107,26 @@ gateSensor = new DigitalInput(7);
 				stopLeftBeltMotor();
 				stopRightBeltMotor();
 			}
+			if (gLoad) {
+				startGateMotor();
+				gateLoadInProgress = true;
+			}
+			else {
+				stopGateMotor();
+		//		gateLoadInProgress = false;
+			}
 		} 
-		if (indexedBallCount > 0) {
-			if (waitTopClear == true && !topSensor()) {
-					decrementPwrCellCount();
-					waitTopClear = false;
-					waitTopTrip = true;
-			}
-			if (waitTopTrip == true && topSensor()){
-				waitTopClear = true;
-				waitTopTrip = false;
-			}
-		}
+		// if (indexedBallCount > 0) {
+		// 	if (waitTopClear == true && !topSensor()) {
+		// 			decrementPwrCellCount();
+		// 			waitTopClear = false;
+		// 			waitTopTrip = true;
+		// 	}
+		// 	if (waitTopTrip == true && topSensor()){
+		// 		waitTopClear = true;
+		// 		waitTopTrip = false;
+		// 	}
+		// }
 		
 	}
 
