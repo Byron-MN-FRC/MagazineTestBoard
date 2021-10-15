@@ -47,7 +47,7 @@ public class AutoMiddle extends SequentialCommandGroup {
         new zeroHood(m_ballShooter), 
         new turn2LimeLight(m_driveTrain),        
         new ParallelCommandGroup(
-             new teleopAutoShootCMD(m_ballShooter).withTimeout(4)
+             new teleopAutoShootCMD(m_ballShooter).withTimeout(10)
              //new autonimousShoot(m_ballShooter)
             
 

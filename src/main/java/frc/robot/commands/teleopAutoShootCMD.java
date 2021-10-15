@@ -77,7 +77,8 @@ public class teleopAutoShootCMD extends CommandBase {
         //Robot.ballShooter.prepareToShoot(rpms,hoodEncoderUnits);
         //setTimeout(BallShooterConstants.teleopAutoShootCmdTimeout);
         RobotContainer.getInstance().m_ballIndexer.setAutoIndex(false);
-        indexBeltRunner = new runIndexBelt(BallIndexerConstants.indexMotorSpeed, RobotContainer.getInstance().m_ballIndexer);
+        //indexBeltRunner = new runIndexBelt(BallIndexerConstants.indexMotorSpeed, RobotContainer.getInstance().m_ballIndexer);
+        indexBeltRunner = new runIndexBelt(0.65, RobotContainer.getInstance().m_ballIndexer);
         // SmartDashboard.putNumber("Shooter/HoodTarget", hoodEncoderUnits);
         // SmartDashboard.putNumber("Shooter/ShootTarget", rpms);
     }
