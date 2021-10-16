@@ -90,10 +90,6 @@ gateSensor = new DigitalInput(7);
     @Override
     public void periodic() {
         // This method will be called once per scheduler run
-	//	SmartDashboard.putBoolean("Gate Sensor", gateSensor());
-	//	SmartDashboard.putBoolean("Top Sensor", topSensor());
-	//	SmartDashboard.putBoolean("Bottom Sensor", bottomSensor());
-	
 		boolean gLoad = !topSensor() && (gateSensor() || gateLoadInProgress);
 		if (topSensor()) { gateLoadInProgress=false; }
 		//	boolean gLoad = !topSensor() && ((gateSensor()) || (!bottomSensor() && gateLoadInProgress));
@@ -116,17 +112,17 @@ gateSensor = new DigitalInput(7);
 		//		gateLoadInProgress = false;
 			}
 		} 
-		// if (indexedBallCount > 0) {
-		// 	if (waitTopClear == true && !topSensor()) {
-		// 			decrementPwrCellCount();
-		// 			waitTopClear = false;
-		// 			waitTopTrip = true;
-		// 	}
-		// 	if (waitTopTrip == true && topSensor()){
-		// 		waitTopClear = true;
-		// 		waitTopTrip = false;
-		// 	}
-		// }
+		if (indexedBallCount > 0) {
+			if (waitTopClear == true && !topSensor()) {
+					decrementPwrCellCount();
+					waitTopClear = false;
+					waitTopTrip = true;
+			}
+			if (waitTopTrip == true && topSensor()){
+				waitTopClear = true;
+				waitTopTrip = false;
+			}
+		}
 		
 	}
 
@@ -292,6 +288,7 @@ gateSensor = new DigitalInput(7);
 
 	public void reinizilizeIndexer() {
 		gateLoadInProgress = false;
+		indexedBallCount = 0;
 	}
 
 	public void startIndexBelt(double speed) {

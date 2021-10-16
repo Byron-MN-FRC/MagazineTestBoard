@@ -21,7 +21,7 @@ package frc.robot;
  */
 public class Constants {
 	    // Drive Train constants
-		public static final boolean kDebug_DT = true;
+		public static final boolean kDebug_DT = false;
 		public static final boolean kEnableCurrentLimiting_DT = true;
 		// public final static double kAmpLimit_DT = 12; public static final String kAmpLimitName_DT = "DriveTrain/Amp Limit";
 		// public final static double kAmpPeak_DT = 15; public static final String kAmpPeakLimitName_DT = "DriveTrain/Amp Peak Limit";

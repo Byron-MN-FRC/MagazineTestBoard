@@ -65,11 +65,11 @@ public class turn2LimeLight extends CommandBase {
     // Called every time the scheduler runs while the command is scheduled.
     @Override
     public void execute() {
-        // LimelightUtility.RefreshTrackingData();
-        // targetAcquired = LimelightUtility.ValidTargetFound();
+        LimelightUtility.RefreshTrackingData();
+        targetAcquired = LimelightUtility.ValidTargetFound();
 
         if (targetAcquired) {
-            // targetTurn = getTargetTurn();
+            targetTurn = getTargetTurn();
             m_driveTrain.closedLoopTurn(targetTurn);
         }
         ledWarmUp--;
