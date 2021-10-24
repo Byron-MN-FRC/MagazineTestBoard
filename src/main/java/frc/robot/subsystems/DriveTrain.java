@@ -203,17 +203,20 @@ tankDrive.setMaxOutput(1.0);
         //zeroSensors();
         rightMaster.set(ControlMode.MotionMagic, 0, DemandType.AuxPID, angle * 10);
         leftMaster.follow(rightMaster, FollowerType.AuxOutput1);
-        // rightFollower.follow(rightMaster);
-        // leftFollower.follow(leftMaster);
+        //rightFollower.follow(rightMaster);
+        //leftFollower.follow(leftMaster);
     }
 
     public boolean closedLoopTurnComplete(double target) {
         double[] ypr = new double[3];
         pigeon.getYawPitchRoll(ypr);
 
-        if (Constants.kDebug_DT)
+        if (Constants.kDebug_DT) {
             System.out.println("test/shifter/Turn Distance Remaining" + Math.abs(ypr[0] - target));
-            return Math.abs(ypr[0] - target) < (360 * .005);
+            System.out.print("ypr=" + ypr[0]);
+            System.out.println(" target=" + target);
+        }
+            return Math.abs(ypr[0] - target) < (360 * .0028);
       //      return Math.abs(ypr[0] - target) < (360 * .01);
     }
 
@@ -222,6 +225,8 @@ tankDrive.setMaxOutput(1.0);
         rightMaster.set(ControlMode.Disabled, 0);
         rightMaster.set(0);
         leftMaster.set(0);
+        leftMaster.configOpenloopRamp(1.0 ,Constants.kTimeoutMs);
+        rightMaster.configOpenloopRamp(1.0 ,Constants.kTimeoutMs);
     }
 
     public void motorConfigFalcon() {
@@ -323,6 +328,8 @@ tankDrive.setMaxOutput(1.0);
         // Motion Magic Configs
         _rightConfig.motionAcceleration = 9500; // (distance units per 100 ms) per second
         _rightConfig.motionCruiseVelocity = 17000; // distance units per 100 ms
+      //  _rightConfig.motionAcceleration = 2000; // (distance units per 100 ms) per second
+      //  _rightConfig.motionCruiseVelocity = 4000; // distance units per 100 ms
 
         // APPLY the config settings
         leftMaster.configAllSettings(_leftConfig);
@@ -376,6 +383,14 @@ tankDrive.setMaxOutput(1.0);
         rightMaster.getSensorCollection().setIntegratedSensorPosition(0, Constants.kTimeoutMs);
         pigeon.setYaw(0, Constants.kTimeoutMs);
         pigeon.setAccumZAngle(0, Constants.kTimeoutMs);
+        leftMaster.configOpenloopRamp(0.25 ,Constants.kTimeoutMs);
+        rightMaster.configOpenloopRamp(0.25 ,Constants.kTimeoutMs);
+   //     System.out.println("Integrated Encoders + Pigeon] All sensors are zeroed.\n");
+    }
+
+    public void zeroPigeon() {
+        pigeon.setYaw(0, Constants.kTimeoutMs);
+        //pigeon.setAccumZAngle(0, Constants.kTimeoutMs);
    //     System.out.println("Integrated Encoders + Pigeon] All sensors are zeroed.\n");
     }
 
@@ -535,8 +550,6 @@ tankDrive.setMaxOutput(1.0);
         leftMaster.configPeakOutputReverse(-max, Constants.kTimeoutMs);
         rightMaster.configPeakOutputForward(max, Constants.kTimeoutMs);
         rightMaster.configPeakOutputReverse(-max, Constants.kTimeoutMs);
-       // leftMaster.configOpenloopRamp(1,Constants.kTimeoutMs);
-      //  rightMaster.configOpenloopRamp(1,Constants.kTimeoutMs);
         leftMaster.configOpenloopRamp(1.0 ,Constants.kTimeoutMs);
         rightMaster.configOpenloopRamp(1.0 ,Constants.kTimeoutMs);
     }
