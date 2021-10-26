@@ -101,18 +101,18 @@ tankDrive.setMaxOutput(1.0);
     public void periodic() {
         // This method will be called once per scheduler run
 
-        PigeonIMU.GeneralStatus genStatus = new PigeonIMU.GeneralStatus();
-        PigeonIMU.FusionStatus fusionStatus = new PigeonIMU.FusionStatus();
-        double[] xyz_dps = new double[3];
+        //PigeonIMU.GeneralStatus genStatus = new PigeonIMU.GeneralStatus();
+        //PigeonIMU.FusionStatus fusionStatus = new PigeonIMU.FusionStatus();
+        //double[] xyz_dps = new double[3];
         /* grab some input data from Pigeon and gamepad */
-        pigeon.getGeneralStatus(genStatus);
-        pigeon.getRawGyro(xyz_dps);
-        pigeon.getFusedHeading(fusionStatus);
-        double[] ypr = new double[3];
-        pigeon.getYawPitchRoll(ypr);
+        //pigeon.getGeneralStatus(genStatus);
+        // pigeon.getRawGyro(xyz_dps);
+        //pigeon.getFusedHeading(fusionStatus);
+        // double[] ypr = new double[3];
+        // pigeon.getYawPitchRoll(ypr);
 
-        if (Constants.kDebug_DT) {
-            if (++limitDashboardUpdates % 10 == 0) {
+        //if (Constants.kDebug_DT) {
+            // if (++limitDashboardUpdates % 10 == 0) {
                 // SmartDashboard.putNumber(Constants.kAmpLimitName_DT, Constants.kAmpLimit_DT);
                 // SmartDashboard.putNumber(Constants.kAmpPeakLimitName_DT, Constants.kAmpPeak_DT);
                 // SmartDashboard.putNumber("test/drive/RMaster Amps", rightMaster.getSupplyCurrent());
@@ -136,8 +136,8 @@ tankDrive.setMaxOutput(1.0);
                 //         rightMaster.getSensorCollection().getIntegratedSensorPosition());
                 // SmartDashboard.putNumber("test/drive/Right velocity",
                 //         rightMaster.getSensorCollection().getIntegratedSensorVelocity());
-            }
-        }
+            // }
+        // }
         // if (timer >= 2000) {
         // coolMotor();
         // timer = 0;
@@ -328,6 +328,7 @@ tankDrive.setMaxOutput(1.0);
         // Motion Magic Configs
         _rightConfig.motionAcceleration = 9500; // (distance units per 100 ms) per second
         _rightConfig.motionCruiseVelocity = 17000; // distance units per 100 ms
+        _rightConfig.motionCurveStrength = 3;
       //  _rightConfig.motionAcceleration = 2000; // (distance units per 100 ms) per second
       //  _rightConfig.motionCruiseVelocity = 4000; // distance units per 100 ms
 
@@ -451,20 +452,20 @@ tankDrive.setMaxOutput(1.0);
         masterConfig.primaryPID.selectedFeedbackCoefficient = 0.5;
     }
 
-    public void driveToPowerCell(int xPos, int height) {
-        if (height != 999) {
-            twist = (double) xPos / 500;
-            if (height < 50)
-                y = .30;
-            else
-                y = 0;
-        } else {
-            twist = 0;
-            y = 0;
-        }
-     //   System.out.println(y);
-        tankDrive.arcadeDrive(y, twist);
-    }
+    // public void driveToPowerCell(int xPos, int height) {
+    //     if (height != 999) {
+    //         twist = (double) xPos / 500;
+    //         if (height < 50)
+    //             y = .30;
+    //         else
+    //             y = 0;
+    //     } else {
+    //         twist = 0;
+    //         y = 0;
+    //     }
+    //  //   System.out.println(y);
+    //     tankDrive.arcadeDrive(y, twist);
+    // }
 
     /** Deadband 5 percent, used on the gamepad --NEED TO USE */
     private double Deadband(double value) {
@@ -557,8 +558,4 @@ tankDrive.setMaxOutput(1.0);
     public TalonFXConfiguration getRightMotor() {
         return _rightConfig;
     }
-    
 }
-
-
-
