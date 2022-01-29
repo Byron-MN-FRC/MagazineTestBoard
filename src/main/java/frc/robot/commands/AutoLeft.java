@@ -46,21 +46,23 @@ public class AutoLeft extends SequentialCommandGroup {
         //  );
         new zeroHood(m_ballShooter),
         new ParallelCommandGroup(
-            new setShootModeOn(m_ballShooter),
-            new driveFeet(6.5, 0, m_driveTrain).withTimeout(3.5)
+     //       new setShootModeOn(m_ballShooter),
+            new driveFeet(2, 0, m_driveTrain).withTimeout(3.5)
         ),
         
-        new autoTurn(25, m_driveTrain),
-        new turn2LimeLight(m_driveTrain),
-       // new autonimousShoot(m_ballShooter),
-        new teleopAutoShootCMD(m_ballShooter).withTimeout(9),
-        new autoTurn(-25, m_driveTrain).withTimeout(2),
-        new extendSolenoid(m_ballAcquisition).withTimeout(5),
+
+        new autoTurn(21, m_driveTrain).withTimeout(2),
+        new turn2LimeLight(m_driveTrain).withTimeout(3),
+        new autonimousShoot(m_ballShooter).withTimeout(4),
+        //new teleopAutoShootCMD(m_ballShooter).withTimeout(4),
+        new autoTurn(-21, m_driveTrain).withTimeout(2),
+        new extendSolenoid(m_ballAcquisition).withTimeout(1),
+
         new ParallelRaceGroup(
             new startAcquireMotor(m_ballAcquisition),
-            new driveFeet(9, 0, m_driveTrain).withTimeout(5)
+            new driveFeet(13, 0, m_driveTrain).withTimeout(5)
         ),
-        new driveFeet(-9, 0, m_driveTrain).withTimeout(5)   
+        new driveFeet(-13, 0, m_driveTrain).withTimeout(5)   
         );
     }
 

@@ -166,20 +166,20 @@ tankDrive.setMaxOutput(1.0);
         // syntax
 
      //   twist = (twist < 0) ? -Math.pow(Deadband(twist), 2) : Math.pow(Deadband(twist), 2);
-     double max = .7;
-        if (RobotContainer.getInstance().getm_shifter().highGear == true){
-            max = .7;
-           /* leftMaster.configPeakOutputForward(max, Constants.kTimeoutMs);
-            leftMaster.configPeakOutputReverse(-max, Constants.kTimeoutMs);
-            rightMaster.configPeakOutputForward(max, Constants.kTimeoutMs);
-            rightMaster.configPeakOutputReverse(-max, Constants.kTimeoutMs);
-            tankDrive.arcadeDrive(y, twist);*/
-        }
+    //  double max = .7;
+        // if (RobotContainer.getInstance().getm_shifter().highGear == true){
+        //     max = .7;
+        //    /* leftMaster.configPeakOutputForward(max, Constants.kTimeoutMs);
+        //     leftMaster.configPeakOutputReverse(-max, Constants.kTimeoutMs);
+        //     rightMaster.configPeakOutputForward(max, Constants.kTimeoutMs);
+        //     rightMaster.configPeakOutputReverse(-max, Constants.kTimeoutMs);
+        //     tankDrive.arcadeDrive(y, twist);*/
+        // }
 
-        leftMaster.configPeakOutputForward(max, Constants.kTimeoutMs);
-        leftMaster.configPeakOutputReverse(-max, Constants.kTimeoutMs);
-        rightMaster.configPeakOutputForward(max, Constants.kTimeoutMs);
-        rightMaster.configPeakOutputReverse(-max, Constants.kTimeoutMs);
+        // leftMaster.configPeakOutputForward(max, Constants.kTimeoutMs);
+        // leftMaster.configPeakOutputReverse(-max, Constants.kTimeoutMs);
+        // rightMaster.configPeakOutputForward(max, Constants.kTimeoutMs);
+        // rightMaster.configPeakOutputReverse(-max, Constants.kTimeoutMs);
         if (RobotContainer.getInstance().getm_shifter().highGear) {
             tankDrive.arcadeDrive(y,  (twist*.80)); 
         }
@@ -200,7 +200,7 @@ tankDrive.setMaxOutput(1.0);
     }
 
     public void closedLoopTurn(double angle) {
-        zeroSensors();
+        //zeroSensors();
         rightMaster.set(ControlMode.MotionMagic, 0, DemandType.AuxPID, angle * 10);
         leftMaster.follow(rightMaster, FollowerType.AuxOutput1);
         // rightFollower.follow(rightMaster);
@@ -212,11 +212,14 @@ tankDrive.setMaxOutput(1.0);
         pigeon.getYawPitchRoll(ypr);
 
         if (Constants.kDebug_DT)
-            SmartDashboard.putNumber("test/shifter/Turn Distance Remaining", Math.abs(ypr[0] - target));
-        return Math.abs(ypr[0] - target) < (360 * .005);
+            System.out.println("test/shifter/Turn Distance Remaining" + Math.abs(ypr[0] - target));
+            return Math.abs(ypr[0] - target) < (360 * .005);
+      //      return Math.abs(ypr[0] - target) < (360 * .01);
     }
 
     public void stop() {
+        leftMaster.set(ControlMode.Disabled, 0);
+        rightMaster.set(ControlMode.Disabled, 0);
         rightMaster.set(0);
         leftMaster.set(0);
     }
@@ -527,7 +530,7 @@ tankDrive.setMaxOutput(1.0);
     }
 
     public void teleopLimiting() {
-        double max = 1.0;
+        double max = .70;
         leftMaster.configPeakOutputForward(max, Constants.kTimeoutMs);
         leftMaster.configPeakOutputReverse(-max, Constants.kTimeoutMs);
         rightMaster.configPeakOutputForward(max, Constants.kTimeoutMs);

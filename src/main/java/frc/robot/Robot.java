@@ -40,7 +40,7 @@ public class Robot extends TimedRobot {
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
      */
-    CameraServer server;
+    //CameraServer server;
     @Override
     public void robotInit() {
         // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
@@ -49,8 +49,8 @@ public class Robot extends TimedRobot {
         //m_robotContainer.m_ballShooter.teleopWithIdle = false;
         HAL.report(tResourceType.kResourceType_Framework, tInstances.kFramework_RobotBuilder);
         m_robotContainer.m_ballAcquisition.retractSolenoid();
-        server = CameraServer.getInstance();
-        server.startAutomaticCapture("forward",0);
+        //server = CameraServer.getInstance();
+        //server.startAutomaticCapture("forward",0);
         //SmartDashboard.putData("drive/Auto mode", chooser);
         LimelightUtility.EnableDriverCamera(true);
         LimelightUtility.StreamingMode(LimelightUtility.StreamMode.Standard);
@@ -102,7 +102,7 @@ public class Robot extends TimedRobot {
     @Override
     public void autonomousInit() {
         // initializeSubsystems();
-        // Robot.driveTrain.autonomousLimiting();        
+        RobotContainer.getInstance().m_driveTrain.autonomousLimiting();        
         m_autonomousCommand = m_robotContainer.getAutonomousCommand();
         initializeSubsystems();
 
@@ -144,7 +144,7 @@ public class Robot extends TimedRobot {
      */
     @Override
     public void teleopPeriodic() {
-        RobotContainer.getInstance().m_driveTrain.teleopLimiting();
+        // RobotContainer.getInstance().m_driveTrain.teleopLimiting();
     }
 
     @Override
@@ -171,7 +171,7 @@ public class Robot extends TimedRobot {
         RobotContainer.getInstance().m_driveTrain.zeroSensors();
         RobotContainer.getInstance().m_ballIndexer.reinizilizeIndexer();
         //Robot.ballIndexer.resetCount();
-        RobotContainer.getInstance().m_driveTrain.reinitializeDriveTrain();
+        //RobotContainer.getInstance().m_driveTrain.reinitializeDriveTrain();
         RobotContainer.getInstance().m_ballShooter.reinitializeShooter();
         RobotContainer.getInstance().m_shifter.reinitializeShifter();
         //RobotContainer.getInstance().m_ballAcquisition.reinitlizeAquisition();

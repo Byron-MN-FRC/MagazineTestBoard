@@ -46,10 +46,10 @@ public class AutoRight extends SequentialCommandGroup {
             new setShootModeOn(m_ballShooter),
             new driveFeet(2, 0, m_driveTrain).withTimeout(4)
         ),
-            new autoTurn(-25, m_driveTrain),
-            new turn2LimeLight(m_driveTrain),
-           // new autonimousShoot(m_ballShooter),
-            new teleopAutoShootCMD(m_ballShooter).withTimeout(8),
+            new autoTurn(-25, m_driveTrain).withTimeout(2),
+            new turn2LimeLight(m_driveTrain).withTimeout(2),
+            new autonimousShoot(m_ballShooter).withTimeout(8),
+            //new teleopAutoShootCMD(m_ballShooter).withTimeout(8),
             new autoTurn(25, m_driveTrain)
         );
     }
