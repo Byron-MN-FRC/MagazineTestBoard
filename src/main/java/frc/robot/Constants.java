@@ -21,7 +21,7 @@ package frc.robot;
  */
 public class Constants {
 	    // Drive Train constants
-		public static final boolean kDebug_DT = true;
+		public static final boolean kDebug_DT = false;
 		public static final boolean kEnableCurrentLimiting_DT = true;
 		// public final static double kAmpLimit_DT = 12; public static final String kAmpLimitName_DT = "DriveTrain/Amp Limit";
 		// public final static double kAmpPeak_DT = 15; public static final String kAmpPeakLimitName_DT = "DriveTrain/Amp Peak Limit";
@@ -64,7 +64,7 @@ public class Constants {
 		public final static int kTimeoutMs = 30;
 
 		public final static Gains kGains_Distanc = new Gains(0.1, 0.0, 0.0, 0.0, 100, 0.50);
-		public final static Gains kGains_Turning = new Gains(2.0, 0.0, 4.0, 0.0, 200, 0.6);
+        public final static Gains kGains_Turning = new Gains(2, 0.0008, 0.0, 0.0, 0, 0.9);
 		public final static Gains kGains_Velocit = new Gains(0.1, 0.0, 20.0, 1023.0 / 6800.0, 300, 0.50);
 		public final static Gains kGains_MotProf = new Gains(1.0, 0.0, 0.0, 1023.0 / 6800.0, 400, 1.00);
 		public static final Gains kGains = new Gains(0.2, 0.001, 0.0, 0.2, 0, 1.0);
@@ -84,7 +84,8 @@ public class Constants {
 		public final static int kSlot_Distanc = SLOT_0;
         public final static int kSlot_Turning = SLOT_1;
         public final static int kSlot_Velocit = SLOT_2;
-		public final static int kSlot_MotProf = SLOT_3; 
+        public final static int kSlot_MotProf = SLOT_3; 
+        
 
     public static final class BeltMotorConstants {
         /**

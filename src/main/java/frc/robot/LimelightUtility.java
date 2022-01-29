@@ -68,27 +68,27 @@ public class LimelightUtility {
 
     static public void LogTrackingData() {
         RefreshTrackingData();
-        System.out.println('.');System.out.println('.');
-        System.out.println("######################################################");
-        System.out.println("#            Tracking data from Limelight            #");
-        System.out.println("######################################################");
-        System.out.print("TargetFound                     =");System.out.println(tv);
-        System.out.print("TargetHorizontalOffset          =");System.out.println(tx);
-        System.out.print("TargetVerticalOffset            =");System.out.println(ty);
-        System.out.print("TargetAreaPercentage            =");System.out.println(ta);
-        System.out.print("TargetSkew                      =");System.out.println(ts);
-        System.out.print("PipelineLatency                 =");System.out.println(tl);
-        System.out.print("TargetSideLengthShortest        =");System.out.println(tshort);
-        System.out.print("TargetSideLenghtLongest         =");System.out.println(tlong);
-        System.out.print("TargetHorizSideLengthRoughBox   =");System.out.println(thoriz);
-        System.out.print("TargetVertSideLengthRoughbox    =");System.out.println(tvert);
-        System.out.print("Camera3dTranslation_x           =");System.out.println(Camera3dTranslation_x);     
-        System.out.print("Camera3dTranslation_y           =");System.out.println(Camera3dTranslation_y);     
-        System.out.print("Camera3dTranslation_z           =");System.out.println(Camera3dTranslation_z);     
-        System.out.print("Camera3dTranslation_pitch       =");System.out.println(Camera3dTranslation_pitch);  
-        System.out.print("Camera3dTranslation_yaw         =");System.out.println(Camera3dTranslation_yaw);   
-        System.out.print("Camera3dTranslation_roll        =");System.out.println(Camera3dTranslation_roll);   
-        System.out.println("######################################################");
+        // System.out.println('.');System.out.println('.');
+        // System.out.println("######################################################");
+        // System.out.println("#            Tracking data from Limelight            #");
+        // System.out.println("######################################################");
+        // System.out.print("TargetFound                     =");System.out.println(tv);
+        // System.out.print("TargetHorizontalOffset          =");System.out.println(tx);
+        // System.out.print("TargetVerticalOffset            =");System.out.println(ty);
+        // System.out.print("TargetAreaPercentage            =");System.out.println(ta);
+        // System.out.print("TargetSkew                      =");System.out.println(ts);
+        // System.out.print("PipelineLatency                 =");System.out.println(tl);
+        // System.out.print("TargetSideLengthShortest        =");System.out.println(tshort);
+        // System.out.print("TargetSideLenghtLongest         =");System.out.println(tlong);
+        // System.out.print("TargetHorizSideLengthRoughBox   =");System.out.println(thoriz);
+        // System.out.print("TargetVertSideLengthRoughbox    =");System.out.println(tvert);
+        // System.out.print("Camera3dTranslation_x           =");System.out.println(Camera3dTranslation_x);     
+        // System.out.print("Camera3dTranslation_y           =");System.out.println(Camera3dTranslation_y);     
+        // System.out.print("Camera3dTranslation_z           =");System.out.println(Camera3dTranslation_z);     
+        // System.out.print("Camera3dTranslation_pitch       =");System.out.println(Camera3dTranslation_pitch);  
+        // System.out.print("Camera3dTranslation_yaw         =");System.out.println(Camera3dTranslation_yaw);   
+        // System.out.print("Camera3dTranslation_roll        =");System.out.println(Camera3dTranslation_roll);   
+        // System.out.println("######################################################");
     }
 
     static public void WriteDouble(String tableField, double fieldValue){
@@ -121,8 +121,8 @@ public class LimelightUtility {
 
     static public void SelectPipeline(int pipeline) {
         if (pipeline < 0 || pipeline > 9) {
-            System.out.print("SelectPipeline: Invalid pipeline requested: ");
-            System.out.println(pipeline);
+     //       System.out.print("SelectPipeline: Invalid pipeline requested: ");
+      //      System.out.println(pipeline);
         }
         else {
             WriteDouble("pipeline", pipeline);
